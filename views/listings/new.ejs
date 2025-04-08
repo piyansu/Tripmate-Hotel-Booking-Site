@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width: 600px">
+    <h2 class="text-center mb-4 fw-bold">Add a New Listing</h2>
+    <form action="/listings" method="post">
+      <div class="mb-3">
+        <label for="title" class="form-label fw-semibold">Title</label>
+        <input type="text" name="title" class="form-control" placeholder="Enter the title" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label fw-semibold">Description</label>
+        <input type="text" name="description" class="form-control" placeholder="Enter a short description" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label fw-semibold">Image URL</label>
+        <input type="text" name="image" class="form-control" placeholder="Paste image URL" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label fw-semibold">Price (INR)</label>
+        <input type="number" name="price" class="form-control" placeholder="Enter price" required />
+      </div>
+
+      <!-- Side-by-side fields -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="location" class="form-label fw-semibold">Location</label>
+          <input type="text" name="location" class="form-control" placeholder="e.g. Mumbai" required />
+        </div>
+        <div class="col-md-6">
+          <label for="country" class="form-label fw-semibold">Country</label>
+          <input type="text" name="country" class="form-control" placeholder="e.g. India" required />
+        </div>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-danger fw-bold">
+          <i class="fa-solid fa-paper-plane me-2"></i>Submit Listing
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
