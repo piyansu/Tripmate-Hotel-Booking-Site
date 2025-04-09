@@ -59,7 +59,7 @@ app.get("/listings/:id", (req, res) => {
 
 //Add New Route
 app.post("/listings", async (req, res) => {
-  Listing.create(req.body)
+  await Listing.create(req.body)
     .then((result) => {
       res.redirect("/listings");
     })
@@ -85,7 +85,7 @@ app.put("/listings/:id", (req, res) => {
   let { id } = req.params;
   Listing.findByIdAndUpdate(id, req.body)
     .then((result) => {
-      res.redirect("/listings");
+      res.redirect(`/listings/${id}`);
     })
     .catch((err) => {
       console.log(err);
