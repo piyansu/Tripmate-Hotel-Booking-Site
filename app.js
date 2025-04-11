@@ -19,8 +19,13 @@ mongoose
   .then(() => console.log("Connected to mongoDB"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => {
-  res.send("This is Root");
+app.get("/", async (req, res) => {
+  try {
+    const result = await Listing.find().sort({ title: 1 }); // 1 = ascending, -1 = descending
+    res.render("listings/index", { data: result });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // Listing Route (Sorted by title)
