@@ -4,6 +4,9 @@
   "description": "AirBnb Clone ",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js"
+  },
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Piyansu Saha",
