@@ -1,0 +1,481 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="my-home" >
+  <!-- Innovative Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <img src="/images/hero-image.jpg" alt="Luxury Stay" />
+    </div>
+    <div class="hero-content">
+      <div class="hero-tagline">Experience Luxury</div>
+      <h1>Discover amazing places to stay around the world</h1>
+      <p>
+        Find and book unique accommodations from luxury villas to cozy
+        apartments in over 191 countries. Feel at home anywhere you go.
+      </p>
+      <a href="/listings" class="hero-button">Explore Now</a>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 5v14"></path>
+        <path d="m19 12-7 7-7-7"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Category Section -->
+  <section id="explore" class="category-section">
+    <div class="section-heading">
+      <h2 class="section-title">Explore by property type</h2>
+      <p class="section-subtitle">
+        Discover the perfect type of accommodation for your next adventure
+      </p>
+    </div>
+    <div class="categories">
+      <div class="category-card">
+        <div class="category-image">
+          <img src="/images/hotel.jpg" alt="Hotel" />
+        </div>
+        <div class="category-overlay">
+          <div class="category-name">Hotels</div>
+          <div class="category-properties">1,240+ properties</div>
+        </div>
+        <button class="category-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="category-card">
+        <div class="category-image">
+          <img src="/images/apartment.jpg" alt="Apartment" />
+        </div>
+        <div class="category-overlay">
+          <div class="category-name">Apartments</div>
+          <div class="category-properties">2,380+ properties</div>
+        </div>
+        <button class="category-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="category-card">
+        <div class="category-image">
+          <img src="/images/resort.jpg" alt="Resort" />
+        </div>
+        <div class="category-overlay">
+          <div class="category-name">Resorts</div>
+          <div class="category-properties">890+ properties</div>
+        </div>
+        <button class="category-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="category-card">
+        <div class="category-image">
+          <img src="/images/villa.jpg" alt="Villa" />
+        </div>
+        <div class="category-overlay">
+          <div class="category-name">Villas</div>
+          <div class="category-properties">1,580+ properties</div>
+        </div>
+        <button class="category-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties - Carousel Style -->
+  <section class="featured-section">
+    <div class="featured-shape featured-shape-1"></div>
+    <div class="featured-shape featured-shape-2"></div>
+    <div class="featured-container">
+      <div class="section-heading">
+        <h2 class="section-title">Featured properties</h2>
+        <p class="section-subtitle">
+          Handpicked properties that offer exceptional experiences
+        </p>
+      </div>
+
+      <div class="property-carousel">
+        <div class="property-card">
+          <div class="property-image">
+            <img src="/api/placeholder/400/300" alt="Luxury Suite" />
+            <div class="property-badge">Featured</div>
+          </div>
+          <div class="property-details">
+            <div class="property-type">Luxury Suite</div>
+            <div class="property-name">
+              Modern Downtown Suite with City View
+            </div>
+            <div class="property-meta">
+              <div class="property-location">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                New York
+              </div>
+              <div class="property-rating">
+                <span class="rating-star">★</span> 4.9
+              </div>
+            </div>
+            <div class="property-price-row">
+              <div class="property-price">$120 <span>/ night</span></div>
+              <button class="property-button">View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-image">
+            <img src="/api/placeholder/400/300" alt="Beach Villa" />
+            <div class="property-badge">Top Rated</div>
+          </div>
+          <div class="property-details">
+            <div class="property-type">Beachfront Villa</div>
+            <div class="property-name">
+              Luxury Beachfront Villa with Infinity Pool
+            </div>
+            <div class="property-meta">
+              <div class="property-location">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Bali
+              </div>
+              <div class="property-rating">
+                <span class="rating-star">★</span> 4.8
+              </div>
+            </div>
+            <div class="property-price-row">
+              <div class="property-price">$350 <span>/ night</span></div>
+              <button class="property-button">View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-image">
+            <img src="/api/placeholder/400/300" alt="Mountain Cabin" />
+            <div class="property-badge">Best Value</div>
+          </div>
+          <div class="property-details">
+            <div class="property-type">Mountain Cabin</div>
+            <div class="property-name">
+              Cozy Mountain Retreat with Stunning Views
+            </div>
+            <div class="property-meta">
+              <div class="property-location">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Aspen
+              </div>
+              <div class="property-rating">
+                <span class="rating-star">★</span> 4.7
+              </div>
+            </div>
+            <div class="property-price-row">
+              <div class="property-price">$175 <span>/ night</span></div>
+              <button class="property-button">View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-image">
+            <img src="/api/placeholder/400/300" alt="City Apartment" />
+            <div class="property-badge">New</div>
+          </div>
+          <div class="property-details">
+            <div class="property-type">City Apartment</div>
+            <div class="property-name">Modern City Center Apartment</div>
+            <div class="property-meta">
+              <div class="property-location">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Paris
+              </div>
+              <div class="property-rating">
+                <span class="rating-star">★</span> 4.9
+              </div>
+            </div>
+            <div class="property-price-row">
+              <div class="property-price">$160 <span>/ night</span></div>
+              <button class="property-button">View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-control">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button class="carousel-control">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotion Section -->
+  <section class="promotion-section">
+    <div class="promotion-content">
+      <div class="promotion-image">
+        <img src="/images/promo.jpg" alt="Host Promotion" />
+      </div>
+      <div class="promotion-text">
+        <div class="promotion-tagline">Become a Host</div>
+        <h2 class="promotion-title">Share your space, earn extra income</h2>
+        <p class="promotion-description">
+          Turn your property into a source of income and join our community of
+          hosts. We make it easy to get started, manage bookings, and connect
+          with travelers from around the world.
+        </p>
+        <div class="promotion-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <span>Easy setup process</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <span>Control your availability</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <span>24/7 customer support</span>
+          </div>
+        </div>
+        <a href="#" class="promotion-button">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="destination-section">
+    <div class="section-heading">
+      <h2 class="section-title">Popular destinations</h2>
+      <p class="section-subtitle">
+        Explore our most booked destinations around the world
+      </p>
+    </div>
+    <div class="destination-grid">
+      <div class="destination-card">
+        <img src="/images/new-york.jpg" alt="New York" />
+        <div class="destination-info">
+          <div class="destination-name">New York</div>
+          <div class="destination-properties">1,523 properties</div>
+        </div>
+        <a href="#" class="destination-link">Explore New York</a>
+      </div>
+      <div class="destination-card">
+        <img src="/images/paris.jpg" alt="Paris" />
+        <div class="destination-info">
+          <div class="destination-name">Paris</div>
+          <div class="destination-properties">986 properties</div>
+        </div>
+        <a href="#" class="destination-link">Explore Paris</a>
+      </div>
+      <div class="destination-card">
+        <img src="/images/tokyo.jpg" alt="Tokyo" />
+        <div class="destination-info">
+          <div class="destination-name">Tokyo</div>
+          <div class="destination-properties">1,204 properties</div>
+        </div>
+        <a href="#" class="destination-link">Explore Tokyo</a>
+      </div>
+      <div class="destination-card">
+        <img src="/images/switzerland.jpg" alt="switzerland" />
+        <div class="destination-info">
+          <div class="destination-name">Switzerland</div>
+          <div class="destination-properties">2,004 properties</div>
+        </div>
+        <a href="#" class="destination-link">Explore Tokyo</a>
+      </div>
+    </div>
+  </section>
+</div>

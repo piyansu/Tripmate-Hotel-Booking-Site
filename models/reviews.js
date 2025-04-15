@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+function getISTDateTime() {
+  return new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      hour12: true,
+  });
+}
+
 const Review = new Schema({
   comment: String,
   rating: {
@@ -9,8 +16,8 @@ const Review = new Schema({
     max: 5,
   },
   createdAt: {
-    type: Date,
-    default: Date.now(),
+    type: String ,
+    default: getISTDateTime,
   },
 });
 

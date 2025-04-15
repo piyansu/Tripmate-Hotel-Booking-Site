@@ -1,9 +1,66 @@
+<!-- navbar.ejs -->
 <nav class="navbar">
   <a href="/" class="brand"><i class="fa-solid fa-umbrella-beach"></i></a>
+
+  <!-- Hamburger menu (visible only on mobile) -->
   <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- Nav links -->
   <div class="nav-links" id="navLinks">
-    <a href="/">Home</a>
-    <a href="/listings">All Listings</a>
-    <a href="/listings/new">Add New Listing</a>
+    <!-- Main navigation links (visible on both desktop and mobile) -->
+    <div class="pc-only-links" style="margin-left: 1.4rem;">
+      <a href="/">Home</a>
+      <a href="/listings">All Listings</a>
+      <a href="/listings/new">Add New Listing</a>
+    </div>
+
+    <!-- Mobile-only links (hidden on desktop) -->
+    <div class="mobile-only-links">
+      <hr />
+      <% if(currentUser) { %>
+      <a href="/user/profile" class="bold"
+        ><i class="fa-solid fa-user"></i> &nbsp@<%= currentUser.username %></a
+      >
+      <a href="/user-listings"
+        ><i class="fa-solid fa-house-chimney-user"></i> &nbspMy Listings</a
+      >
+      <a href="/logout"
+        ><i class="fa-solid fa-right-from-bracket"></i> &nbspLogout</a
+      >
+      <% } else { %>
+      <a href="/login">Sign in</a>
+      <a href="/signup">Sign up</a>
+      <% } %>
+    </div>
+
+    <!-- Profile dropdown (visible only on desktop) -->
+    <div class="dropdown desktop-only">
+      <button class="dropdown-toggle" id="dropdownToggle">
+        <i class="fa-solid fa-bars menu-icon"></i>
+        <div class="user-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </button>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <% if(currentUser) { %>
+        <a href="/user/profile" class="bold"
+          ><i class="fa-solid fa-user"></i>@<%= currentUser.username %></a
+        >
+        <a href="/user-listings"
+          ><i class="fa-solid fa-house-chimney-user"></i>My Listings</a
+        >
+        <a href="/logout"
+          ><i class="fa-solid fa-right-from-bracket"></i>Logout</a
+        >
+        <% } else { %>
+        <a href="/signup" class="bold">Sign up</a>
+        <a href="/login">Sign in</a>
+        <% } %>
+        <div class="divider"></div>
+        <a href="/help"
+          ><i class="fa-solid fa-circle-question"></i>Help Centre</a
+        >
+      </div>
+    </div>
   </div>
 </nav>

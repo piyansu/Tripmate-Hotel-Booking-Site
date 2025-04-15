@@ -1,12 +1,38 @@
+// Setup Express
 const express = require("express");
 const app = express();
+
+// Setup Mongoose
 const mongoose = require("mongoose");
+
+// Setup Path
 const path = require("path");
+
+// Setup Method Override
 const methodOverride = require("method-override");
-const Listing = require("./models/listings.js");
-const Review = require("./models/reviews.js");
+
+// Setup Models
+const User = require("./models/user.js");
+
+// Setup EjsMate
 const ejsmate = require("ejs-mate");
 
+// Setup Express Session
+const session = require("express-session");
+
+// Setup Connect Flash
+const flash = require("connect-flash");
+
+// Setup Passport
+const passport = require("passport");
+const localstrategy = require("passport-local");
+
+// Setup Routes
+const listings = require("./routes/listing.js");
+const review = require("./routes/review.js");
+const user = require("./routes/user.js");
+
+// Setup App
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -14,120 +40,64 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsmate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+// Setup Session
+app.use(
+  session({
+    secret: "Piyansu@2002",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    },
+  })
+);
+
+// Setup Flash
+app.use(flash());
+
+// Setup Passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localstrategy(User.authenticate()));
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Setup Middleware
+app.use((req, res, next) => {
+  // Make current user available to all templates
+  res.locals.currentUser = req.user;
+  res.locals.newlisting = req.flash("newlisting");
+  res.locals.newuser = req.flash("newuser");
+  res.locals.erruser = req.flash("erruser");
+  res.locals.error = req.flash("error");
+  res.locals.previousUsername = req.session.previousUsername || "";
+  next();
+});
+
+// Connect to MongoDB
 mongoose
   .connect("mongodb://127.0.0.1:27017/tripmate")
   .then(() => console.log("Connected to mongoDB"))
   .catch((err) => console.log(err));
 
-app.get("/", async (req, res) => {
-  try {
-    const result = await Listing.find().sort({ title: 1 }); // 1 = ascending, -1 = descending
-    res.render("listings/index", { data: result });
-  } catch (err) {
-    console.log(err);
-  }
+// Root Route
+app.get("/", (req, res) => {
+  res.render("listings/home");
 });
 
-// Listing Route (Sorted by title)
-app.get("/listings", async (req, res) => {
-  try {
-    const result = await Listing.find().sort({ title: 1 }); // 1 = ascending, -1 = descending
-    res.render("listings/index", { data: result });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//New Route
-app.get("/listings/new", (req, res) => {
-  res.render("listings/new");
-});
-
-//Show Route
-app.get("/listings/:id", async (req, res) => {
-  try {
-    const result = await Listing.findById(req.params.id).populate("reviews");
-    res.render("listings/show", { data: result });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//Add New Route
-app.post("/listings", async (req, res) => {
-  try {
-    const newListing = new Listing(req.body);
-    await newListing.save();
-    res.redirect(`/listings/${newListing.id}`);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//Edit Route
-app.get("/listings/:id/edit", async (req, res) => {
-  try {
-    const result = await Listing.findById(req.params.id);
-    res.render("listings/edit", { data: result });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//Update Route
-app.put("/listings/:id", async (req, res) => {
-  try {
-    const result = await Listing.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/listings/${req.params.id}`);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-//Delete Route
-app.delete("/listings/:id", async (req, res) => {
-  try {
-    await Listing.findByIdAndDelete(req.params.id);
-    res.redirect("/listings");
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-app.post("/listings/:id/reviews", async (req, res) => {
-  const listing = await Listing.findById(req.params.id);
-
-  // Parse rating to number and override if it's an array
-  const reviewData = {
-    ...req.body,
-    rating: Array.isArray(req.body.rating)
-      ? Number(req.body.rating[0])
-      : Number(req.body.rating),
-  };
-
-  const review = new Review(reviewData);
-
-  listing.reviews.push(review);
-  await review.save();
-  await listing.save();
-
-  res.redirect(`/listings/${req.params.id}`);
-});
-
-//Delete Review
-app.delete("/listings/:id/reviews/:reviewId", async (req, res) => {
-  let {id , reviewId } = req.params;
-
-  await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-  await Review.findByIdAndDelete(reviewId);
-  res.redirect(`/listings/${id}`);
-});
+// Setup Routes
+app.use("/listings", listings);
+app.use("/listings", review);
+app.use("/", user);
 
 // Error Handler
 app.use((req, res) => {
   res.render("listings/error");
 });
 
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
+// Start Server
+app.listen(3000, "0.0.0.0", () => {
+  console.log("Server running on port 3000");
 });

@@ -6,7 +6,7 @@ const sampleListings = [
     image:
       "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
 
-    price: 1500,
+    price: 15,
     location: "Malibu",
     country: "United States",
   },
@@ -61,7 +61,7 @@ const sampleListings = [
     image:
       "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
 
-    price: 2000,
+    price: 200000000000000,
     location: "Cancun",
     country: "Mexico",
   },

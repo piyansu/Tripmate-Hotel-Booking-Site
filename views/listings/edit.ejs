@@ -1,91 +1,91 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="edit-wrapper">
-  <div class="edit-container">
-    <div class="image-preview" style="background-image: url('<%= data.image %>')">
-      <div class="image-overlay"></div>
-      <div class="property-price">₹<%= data.price.toLocaleString("en-IN") %></div>
-      <div class="property-location">
+<div class="property-edit-wrapper">
+  <div class="property-edit-container">
+    <div class="property-image-preview" style="background-image: url('<%= data.image %>')">
+      <div class="property-image-overlay"></div>
+      <div class="property-price-tag">₹<%= data.price.toLocaleString("en-IN") %></div>
+      <div class="property-location-tag">
         <i class="fa-solid fa-location-dot"></i>
         <%= data.location %>, <%= data.country %>
       </div>
     </div>
     
-    <div class="form-container">
-      <div class="form-header">
-        <div class="header-icon">
+    <div class="property-form-container">
+      <div class="property-form-header">
+        <div class="property-header-icon">
           <i class="fa-solid fa-house-laptop"></i>
         </div>
         <h2>Update Your Property</h2>
       </div>
       
-      <form action="/listings/<%= data._id %>?_method=PUT" method="post" class="edit-form">
-        <div class="form-group">
+      <form action="/listings/<%= data._id %>?_method=PUT" method="post" class="property-edit-form">
+        <div class="property-form-group">
           <label for="title">
             <i class="fa-solid fa-heading"></i>
             <span>Title</span>
           </label>
           <input type="text" id="title" name="title" value="<%= data.title %>" required />
-          <div class="focus-border"></div>
+          <div class="property-focus-border"></div>
         </div>
 
-        <div class="form-group">
+        <div class="property-form-group">
           <label for="description">
             <i class="fa-solid fa-align-left"></i>
             <span>Description</span>
           </label>
           <textarea id="description" name="description" required><%= data.description %></textarea>
-          <div class="focus-border"></div>
+          <div class="property-focus-border"></div>
         </div>
 
-        <div class="form-group">
+        <div class="property-form-group">
           <label for="image">
             <i class="fa-solid fa-image"></i>
             <span>Image URL</span>
           </label>
           <input type="text" id="image" name="image" value="<%= data.image %>" required />
-          <div class="focus-border"></div>
+          <div class="property-focus-border"></div>
         </div>
 
-        <div class="form-group">
+        <div class="property-form-group">
           <label for="price">
             <i class="fa-solid fa-indian-rupee-sign"></i>
             <span>Price</span>
           </label>
           <input type="number" id="price" name="price" value="<%= data.price %>" required />
-          <div class="focus-border"></div>
+          <div class="property-focus-border"></div>
         </div>
 
-        <div class="field-grid">
-          <div class="field-column">
-            <div class="form-group">
+        <div class="property-field-grid">
+          <div class="property-field-column">
+            <div class="property-form-group">
               <label for="location">
                 <i class="fa-solid fa-city"></i>
                 <span>Location</span>
               </label>
               <input type="text" id="location" name="location" value="<%= data.location %>" required />
-              <div class="focus-border"></div>
+              <div class="property-focus-border"></div>
             </div>
           </div>
-          <div class="field-column">
-            <div class="form-group">
+          <div class="property-field-column">
+            <div class="property-form-group">
               <label for="country">
                 <i class="fa-solid fa-earth-asia"></i>
                 <span>Country</span>
               </label>
               <input type="text" id="country" name="country" value="<%= data.country %>" required />
-              <div class="focus-border"></div>
+              <div class="property-focus-border"></div>
             </div>
           </div>
         </div>
 
-        <div class="form-actions">
-          <a href="/listings/<%= data._id %>" class="cancel-button">
+        <div class="property-form-actions">
+          <a href="/listings/<%= data._id %>" class="property-cancel-button">
             <i class="fa-solid fa-xmark"></i>
             Cancel
           </a>
-          <button type="submit" class="update-button">
-            <span class="button-text">Update</span>
+          <button type="submit" class="property-update-button">
+            <span class="property-button-text">Update</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
         </div>
