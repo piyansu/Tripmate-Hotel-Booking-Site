@@ -28,7 +28,7 @@
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/piyansu/Youtube-Job-Openings](https://github.com/piyansu/Tripmate-Hotel-Booking-Site
+   git clone https://github.com/piyansu/Tripmate-Hotel-Booking-Site
    ```
 
 2. **Install backend dependencies**
