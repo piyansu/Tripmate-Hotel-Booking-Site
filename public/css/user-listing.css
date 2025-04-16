@@ -1,0 +1,337 @@
+/* User Listings Page Styling */
+.host-listings-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  animation: hostFadeIn 0.6s ease-out;
+}
+
+@keyframes hostFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.host-listings-header {
+  text-align: center;
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.host-listings-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.host-listings-header h1 i {
+  color: #4a90e2;
+}
+
+.host-listings-header p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+
+.host-create-listing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+
+.host-create-listing-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(66, 153, 225, 0.3);
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+}
+
+/* Grid Layout for Listings */
+.host-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Listing Card */
+.host-listing-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #e2e8f0;
+}
+
+.host-listing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.host-listing-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #48bb78;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.host-listing-img-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.host-listing-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.host-listing-card:hover .host-listing-img-container img {
+  transform: scale(1.05);
+}
+
+.host-listing-location {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.host-listing-info {
+  padding: 1.5rem;
+}
+
+.host-listing-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  height: 2.6rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.host-listing-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4a90e2;
+  margin-bottom: 0.75rem;
+}
+
+.host-listing-price span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #718096;
+}
+
+.host-listing-desc {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  height: 2.85rem;
+  overflow: hidden;
+}
+
+.host-listing-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.host-listing-stats .host-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.host-listing-stats .host-stat i {
+  color: #4a90e2;
+}
+
+.host-listing-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.host-listing-actions a,
+.host-listing-actions button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.host-view-btn {
+  background-color: #f7fafc;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.host-view-btn:hover {
+  background-color: #edf2f7;
+}
+
+.host-edit-btn {
+  background-color: #ebf4ff;
+  color: #3182ce;
+  border: 1px solid #bee3f8;
+}
+
+.host-edit-btn:hover {
+  background-color: #bee3f8;
+}
+
+.host-delete-btn {
+  background-color: #fff5f5;
+  color: #e53e3e;
+  border: 1px solid #fed7d7;
+}
+
+.host-delete-btn:hover {
+  background-color: #fed7d7;
+}
+
+/* Empty State */
+.host-empty-listings {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.host-empty-icon {
+  font-size: 5rem;
+  color: #cbd5e0;
+  margin-bottom: 1.5rem;
+}
+
+.host-empty-listings h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.host-empty-listings p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 2rem;
+}
+
+.host-create-first-listing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+
+.host-create-first-listing-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(66, 153, 225, 0.3);
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .host-listings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .host-listing-actions {
+    flex-direction: column;
+  }
+
+  .host-listings-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .host-listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card Hover Effect */
+@keyframes hostPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+  }
+}
+
+.host-listing-card:hover .host-listing-title {
+  color: #4a90e2;
+}

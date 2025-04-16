@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/css/new.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/user-listing.css" />
   </head>
   <body>
     <%- include('../includes/navbar') %>
@@ -34,5 +35,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/navbar.js"></script>
     <script src="/js/signup.js"></script>
+    <script>
+      // Script to synchronize rating slider with star rating
+      document.addEventListener('DOMContentLoaded', function() {
+        const ratingSlider = document.getElementById('rating-slider');
+        const ratingValueDisplay = document.getElementById('rating-value-display');
+        const starInputs = document.querySelectorAll('.rating-stars input');
+        
+        if(ratingSlider && ratingValueDisplay) {
+          ratingSlider.addEventListener('input', function() {
+            const value = this.value;
+            ratingValueDisplay.textContent = value;
+            
+            // Update the star rating
+            document.getElementById('star' + value).checked = true;
+          });
+        }
+        
+        if(starInputs.length > 0) {
+          starInputs.forEach(input => {
+            input.addEventListener('change', function() {
+              if(this.checked) {
+                const value = this.value;
+                ratingSlider.value = value;
+                ratingValueDisplay.textContent = value;
+              }
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>

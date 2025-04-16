@@ -53,7 +53,9 @@
   padding: 2.5rem;
   position: relative;
 }
-
+.owner-title{
+  font-size: 1.1rem;
+}
 .detail-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -170,6 +172,28 @@
 .btn-delete:hover {
   background-color: #e53e3e;
   box-shadow: 0 4px 12px rgba(245, 101, 101, 0.3);
+}
+
+.btn-book {
+  text-decoration: none;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+}
+
+.btn-book:hover {
+  background-color: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
 /* Add some decorative elements */
