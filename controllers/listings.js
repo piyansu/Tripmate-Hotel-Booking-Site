@@ -44,7 +44,7 @@ module.exports.showlistings = async (req, res) => {
 module.exports.postlistings = async (req, res) => {
   const newListing = new Listing(req.body);
   newListing.owner = req.user._id;
-  newListing.image = req.file.path;
+  newListing.image = req.file.path;xx
   await newListing.save();
   req.flash("newlisting", "New Listing Created");
   res.redirect(`/listings/${newListing.id}`);
