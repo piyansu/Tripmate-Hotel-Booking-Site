@@ -48,7 +48,8 @@ const store = MongoStore.create({
   mongoUrl: process.env.ATLASDB_URL,
   touchAfter: 24 * 60 * 60,
   crypto: {
-    secret: process.env.secret,
+    secret: process.env.SECRET,
+
   },
 });
 
@@ -57,7 +58,8 @@ const store = MongoStore.create({
 app.use(
   session({
     store,
-    secret: process.env.secret,
+    secret: process.env.SECRET,
+
     resave: true,
     saveUninitialized: true,
     cookie: {
