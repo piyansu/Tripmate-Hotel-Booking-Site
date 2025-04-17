@@ -44,3 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("listing-form");
+  const loadingOverlay = document.getElementById("loading-overlay");
+  const submitButton = document.getElementById("submit-button");
+
+  form.addEventListener("submit", function (event) {
+    // Check form validity
+    if (form.checkValidity()) {
+      // Show loading overlay
+      loadingOverlay.classList.remove("hidden");
+
+      // Disable submit button to prevent multiple submissions
+      submitButton.disabled = true;
+      submitButton.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Uploading...';
+    }
+  });
+});

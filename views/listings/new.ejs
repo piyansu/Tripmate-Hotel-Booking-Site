@@ -1,9 +1,15 @@
 <% layout('layouts/boilerplate') %>
 
 <div class="new-listing-container">
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-spinner"></div>
+    <p>Creating your listing...</p>
+  </div>
+
   <div class="new-listing-card">
     <h2 class="new-listing-title">Add a New Listing</h2>
-    <form action="/listings" method="POST" enctype="multipart/form-data">
+    <form id="listing-form" action="/listings" method="POST" enctype="multipart/form-data">
       <div class="form-field">
         <label for="title" class="required-field">Title</label>
         <input
@@ -31,12 +37,7 @@
 
       <div class="form-field">
         <label for="image" class="required-field">Upload Image</label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          required
-        />
+        <input type="file" id="image" name="image" required />
         <span class="focus-border"></span>
       </div>
 
@@ -82,7 +83,7 @@
         </div>
       </div>
 
-      <button type="submit" class="submit-button">
+      <button type="submit" class="submit-button" id="submit-button">
         <i class="fa-solid fa-paper-plane"></i>Submit Listing
       </button>
     </form>

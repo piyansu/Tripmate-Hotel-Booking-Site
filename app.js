@@ -1,5 +1,4 @@
-if(process.env.NODE_ENV != "production")
-  require('dotenv').config()
+require("dotenv").config();
 // Setup Express
 const express = require("express");
 const app = express();
@@ -21,6 +20,7 @@ const ejsmate = require("ejs-mate");
 
 // Setup Express Session
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 // Setup Connect Flash
 const flash = require("connect-flash");
@@ -43,9 +43,21 @@ app.engine("ejs", ejsmate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Setup Session
+
+const store = MongoStore.create({
+  mongoUrl: process.env.ATLASDB_URL,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: process.env.secret,
+  },
+});
+
+
+
 app.use(
   session({
-    secret: "Piyansu@2002",
+    store,
+    secret: process.env.secret,
     resave: true,
     saveUninitialized: true,
     cookie: {
@@ -54,6 +66,8 @@ app.use(
     },
   })
 );
+
+
 
 // Setup Flash
 app.use(flash());
@@ -79,8 +93,13 @@ app.use((req, res, next) => {
 });
 
 // Connect to MongoDB
+// mongoose
+//   .connect("mongodb+srv://piyansu:qbPfwbNQ0TdUJZM4@cluster0.uqo9cw5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+//   .then(() => console.log("Connected to mongoDB"))
+//   .catch((err) => console.log(err));
+
 mongoose
-  .connect("mongodb://127.0.0.1:27017/tripmate")
+  .connect(process.env.ATLASDB_URL)
   .then(() => console.log("Connected to mongoDB"))
   .catch((err) => console.log(err));
 
