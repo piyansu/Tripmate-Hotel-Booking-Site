@@ -1,4 +1,6 @@
 const Listing = require("../models/listings.js");
+const axios = require("axios");
+require('dotenv').config();
 
 module.exports.listings = async (req, res, next) => {
   const listings = await Listing.find({ owner: { $ne: req.user._id } }).sort({
@@ -42,10 +44,36 @@ module.exports.showlistings = async (req, res) => {
 };
 
 module.exports.postlistings = async (req, res) => {
+  const { location } = req.body;
+
+  // 1. Geocode location
+  let geoData;
+  const geoRes = await axios.get(
+    `https://api.maptiler.com/geocoding/${location}.json`,
+    {
+      params: {
+        key: process.env.MAPTILER_API_KEY, // Store your key in .env
+      },
+    }
+  );
+
+  if (geoRes.data.features && geoRes.data.features.length > 0) {
+    geoData = geoRes.data.features[0].geometry; // { type: 'Point', coordinates: [lng, lat] }
+  } else {
+    req.flash("error", "Invalid location, please try again.");
+    return res.redirect("/listings/new");
+  }
+
+  // 2. Save listing with geolocation
+  let url = req.file.path;
+  let filename = req.file.filename;
   const newListing = new Listing(req.body);
   newListing.owner = req.user._id;
-  newListing.image = req.file.path;xx
+  newListing.image.url = url;
+  newListing.image.filename = filename;
+  newListing.geometry = geoData; // 👈 Save geo coordinates here
   await newListing.save();
+
   req.flash("newlisting", "New Listing Created");
   res.redirect(`/listings/${newListing.id}`);
 };
@@ -65,6 +93,12 @@ module.exports.rendereditform = async (req, res) => {
 
 module.exports.editlistings = async (req, res, next) => {
   const result = await Listing.findByIdAndUpdate(req.params.id, req.body);
+  if (req.file) {
+    result.image.url = req.file.path;
+    result.image.filename = req.file.filename;
+    await result.save();
+  }
+
   res.redirect(`/listings/${req.params.id}`);
 };
 
@@ -72,5 +106,5 @@ module.exports.deletelistings = async (req, res, next) => {
   if (!req.isAuthenticated()) return res.redirect("/signup?tab=login");
   const result = await Listing.findByIdAndDelete(req.params.id);
   if (!result) return res.status(404).render("listings/error");
-  res.redirect("/listings");
+  res.redirect("/listings/user-listings");
 };

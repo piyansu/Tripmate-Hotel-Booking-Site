@@ -24,8 +24,8 @@ router.get("/new", isLoggedIn, listingcontroller.rendernewform);
 // GET /listings/:id
 router
     .route("/:id")
-    .get(listingcontroller.showlistings)
-    .put(listingcontroller.editlistings)
+    .get(isLoggedIn , listingcontroller.showlistings)
+    .put(upload.single("image"),listingcontroller.editlistings)
     .delete(isLoggedIn, listingcontroller.deletelistings);
 
 // GET /listings/:id/edit

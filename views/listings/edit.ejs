@@ -2,7 +2,7 @@
 
 <div class="property-edit-wrapper">
   <div class="property-edit-container">
-    <div class="property-image-preview" style="background-image: url('<%= data.image %>')">
+    <div class="property-image-preview" style="background-image: url('<%= data.image.url %>')">
       <div class="property-image-overlay"></div>
       <div class="property-price-tag">₹<%= data.price.toLocaleString("en-IN") %></div>
       <div class="property-location-tag">
@@ -19,7 +19,7 @@
         <h2>Update Your Property</h2>
       </div>
       
-      <form action="/listings/<%= data._id %>?_method=PUT" method="post" class="property-edit-form">
+      <form action="/listings/<%= data._id %>?_method=PUT" method="post" class="property-edit-form" enctype="multipart/form-data">
         <div class="property-form-group">
           <label for="title">
             <i class="fa-solid fa-heading"></i>
@@ -41,9 +41,9 @@
         <div class="property-form-group">
           <label for="image">
             <i class="fa-solid fa-image"></i>
-            <span>Image URL</span>
+            <span>Upload New Image</span>
           </label>
-          <input type="text" id="image" name="image" value="<%= data.image %>" required />
+          <input type="file" id="image" name="image"/>
           <div class="property-focus-border"></div>
         </div>
 

@@ -38,8 +38,6 @@
 
 /* Image Preview Section */
 .property-image-preview {
-  height: 100%;
-  min-height: 600px;
   background-size: cover;
   background-position: center;
   position: relative;
