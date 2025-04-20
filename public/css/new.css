@@ -225,3 +225,84 @@
 .hidden {
   display: none;
 }
+
+/* Small phones (under 480px) */
+@media (max-width: 480px) {
+  .new-listing-container{
+    margin-bottom: -2rem;
+  }
+  .new-listing-card {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .new-listing-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-field {
+    margin-bottom: 1rem;
+  }
+  
+  .form-field input {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .submit-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Medium-sized screens (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .new-listing-container {
+    padding: 2rem 1rem;
+  }
+  
+  .new-listing-card {
+    max-width: 580px;
+    padding: 2.2rem;
+  }
+}
+
+/* Large screens (above 1024px) */
+@media (min-width: 1025px) {
+  .new-listing-card {
+    max-width: 700px;
+    padding: 3rem;
+  }
+  
+  .new-listing-title {
+    font-size: 2.4rem;
+  }
+  
+  .form-field input {
+    padding: 1rem 1.2rem;
+  }
+  
+  .submit-button {
+    padding: 1.1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1440px) {
+  .new-listing-card {
+    max-width: 800px;
+  }
+  
+  .new-listing-container {
+    padding: 4rem 1rem;
+  }
+}
+
+/* Handle file input responsively */
+@media (max-width: 768px) {
+  input[type="file"] {
+    font-size: 0.9rem;
+  }
+}

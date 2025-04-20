@@ -1,0 +1,269 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="booking-container">
+  <div class="booking-wrapper">
+    <div class="booking-left">
+      <div class="listing-preview">
+        <div class="listing-preview-image">
+          <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+        </div>
+        <div class="listing-preview-info">
+          <h3><%= listing.title %></h3>
+          <p class="listing-location">
+            <i class="fa-solid fa-location-dot"></i> <%= listing.location %>
+          </p>
+          <div class="listing-rating">
+            <% if (listing.reviews && listing.reviews.length > 0) { let
+            totalRating = 0; listing.reviews.forEach(review => { totalRating +=
+            Number(review.rating) || 0; }); let avgRating = (totalRating /
+            listing.reviews.length).toFixed(1); %>
+            <i class="fa-solid fa-star"></i> <%= avgRating %> · <%=
+            listing.reviews.length %> <%= listing.reviews.length === 1 ?
+            'review' : 'reviews' %> <% } else { %>
+            <span>No reviews yet</span>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-divider"></div>
+
+      <div class="booking-details">
+        <h2>Your trip details</h2>
+
+        <form
+          id="bookingForm"
+          action="/listings/<%= listing._id %>/book"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="dates">Dates</label>
+            <div class="date-inputs">
+              <div class="date-input">
+                <label for="checkIn">Check-in</label>
+                <input
+                  type="date"
+                  id="checkIn"
+                  name="booking[checkIn]"
+                  required
+                  min="<%= new Date().toISOString().split('T')[0] %>"
+                />
+              </div>
+              <div class="date-input">
+                <label for="checkOut">Check-out</label>
+                <input
+                  type="date"
+                  id="checkOut"
+                  name="booking[checkOut]"
+                  required
+                  min="<%= new Date().toISOString().split('T')[0] %>"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="guests">Guests</label>
+            <div class="guests-input">
+              <select id="guests" name="booking[guests]" required>
+                <% for(let i = 1; i <= 10; i++) { %>
+                <option value="<%= i %>">
+                  <%= i %> <%= i === 1 ? 'guest' : 'guests' %>
+                </option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+
+          <div class="booking-divider"></div>
+
+          <div class="price-breakdown">
+            <h3>Price details</h3>
+            <div class="price-row">
+              <span
+                ><%= `₹${new Intl.NumberFormat('en-IN').format(listing.price ||
+                500)}` %> × <span id="nightCount">0</span> nights</span
+              >
+              <span id="subtotal">₹0</span>
+            </div>
+            <div class="price-row">
+              <span>Cleaning fee</span>
+              <span
+                >₹<%= new
+                Intl.NumberFormat('en-IN').format(Math.round(listing.price *
+                0.1)) %></span
+              >
+            </div>
+            <div class="price-row">
+              <span>Service fee</span>
+              <span
+                >₹<%= new
+                Intl.NumberFormat('en-IN').format(Math.round(listing.price *
+                0.15)) %></span
+              >
+            </div>
+            <div class="price-row total">
+              <span>Total (INR)</span>
+              <span id="totalPrice">₹0</span>
+              <input
+                type="hidden"
+                name="booking[totalPrice]"
+                id="totalPriceInput"
+                value="0"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="booking-button">Confirm and pay</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="booking-right">
+      <div class="booking-card">
+        <h3>Price Details</h3>
+        <div class="listing-preview-mini">
+          <div class="listing-preview-image-mini">
+            <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+          </div>
+          <div class="listing-preview-info-mini">
+            <h4><%= listing.title %></h4>
+            <div class="listing-rating-mini">
+              <% if (listing.reviews && listing.reviews.length > 0) { let
+              totalRating = 0; listing.reviews.forEach(review => { totalRating
+              += Number(review.rating) || 0; }); let avgRating = (totalRating /
+              listing.reviews.length).toFixed(1); %>
+              <i class="fa-solid fa-star"></i> <%= avgRating %> <% } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-divider"></div>
+
+        <div class="price-breakdown-card">
+          <div class="price-row">
+            <span
+              ><%= `₹${new Intl.NumberFormat('en-IN').format(listing.price ||
+              500)}` %> × <span class="nightCount">0</span> nights</span
+            >
+            <span class="subtotal">₹0</span>
+          </div>
+          <div class="price-row">
+            <span>Cleaning fee</span>
+            <span
+              >₹<%= new
+              Intl.NumberFormat('en-IN').format(Math.round(listing.price * 0.1))
+              %></span
+            >
+          </div>
+          <div class="price-row">
+            <span>Service fee</span>
+            <span
+              >₹<%= new
+              Intl.NumberFormat('en-IN').format(Math.round(listing.price *
+              0.15)) %></span
+            >
+          </div>
+        </div>
+
+        <div class="booking-divider"></div>
+
+        <div class="price-row total">
+          <span>Total (INR)</span>
+          <span class="totalPrice">₹0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Store listing price and fees
+  const listingPrice = <%= listing.price %>;
+  const cleaningFee = Math.round(listingPrice * 0.1);
+  const serviceFee = Math.round(listingPrice * 0.15);
+
+  // Get form elements
+  const checkInInput = document.getElementById('checkIn');
+  const checkOutInput = document.getElementById('checkOut');
+  const nightCountElements = document.querySelectorAll('#nightCount, .nightCount');
+  const subtotalElements = document.querySelectorAll('#subtotal, .subtotal');
+  const totalPriceElements = document.querySelectorAll('#totalPrice, .totalPrice');
+  const totalPriceInput = document.getElementById('totalPriceInput');
+
+  // Set minimum check-out date to be the day after check-in
+  checkInInput.addEventListener('change', function() {
+    const checkInDate = new Date(this.value);
+    const nextDay = new Date(checkInDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+
+    const year = nextDay.getFullYear();
+    const month = String(nextDay.getMonth() + 1).padStart(2, '0');
+    const day = String(nextDay.getDate()).padStart(2, '0');
+
+    checkOutInput.min = `${year}-${month}-${day}`;
+
+    // Reset checkout if it's now invalid
+    if (checkOutInput.value && new Date(checkOutInput.value) <= checkInDate) {
+      checkOutInput.value = `${year}-${month}-${day}`;
+    }
+
+    calculateTotal();
+  });
+
+  // Calculate total when checkout date changes
+  checkOutInput.addEventListener('change', calculateTotal);
+
+  // Calculate total price based on dates
+  function calculateTotal() {
+    if (checkInInput.value && checkOutInput.value) {
+      const checkIn = new Date(checkInInput.value);
+      const checkOut = new Date(checkOutInput.value);
+      const diffTime = Math.abs(checkOut - checkIn);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      // Update night count
+      nightCountElements.forEach(el => el.textContent = diffDays);
+
+      // Calculate subtotal
+      const subtotal = listingPrice * diffDays;
+      subtotalElements.forEach(el => el.textContent = `₹${new Intl.NumberFormat('en-IN').format(subtotal)}`);
+
+      // Calculate total price
+      const total = subtotal + cleaningFee + serviceFee;
+      totalPriceElements.forEach(el => el.textContent = `₹${new Intl.NumberFormat('en-IN').format(total)}`);
+      totalPriceInput.value = total;
+    }
+  }
+
+  // Initialize form with today's date
+  window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    };
+
+    checkInInput.value = formatDate(today);
+    checkOutInput.min = formatDate(tomorrow);
+    checkOutInput.value = formatDate(tomorrow);
+
+    calculateTotal();
+  });
+
+  // Form validation
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    const checkIn = new Date(checkInInput.value);
+    const checkOut = new Date(checkOutInput.value);
+
+    if (checkOut <= checkIn) {
+      e.preventDefault();
+      alert('Check-out date must be after check-in date.');
+    }
+  });
+</script>

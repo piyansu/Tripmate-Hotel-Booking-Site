@@ -1,11 +1,59 @@
+<div class="auth-container">
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+    
+    <!-- Signup Form -->
+    <div class="signup">
+      <form class="auth-form" id="signup-form" action="/signup" method="post" onsubmit="return validatePassword()">
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input type="email" id="signup-email" name="email" placeholder="Email" required>
+        <input type="text" id="signup-name" name="username" placeholder="Username" required>
+        <input type="password" id="signup-password" name="password" placeholder="Password" required>
+        <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+        <span id="password-error" class="error-message"></span>
+        <div class="terms-container">
+          <input type="checkbox" id="terms" required>
+          <label for="terms" class="terms-label">I agree to the <a href="#">Terms & Conditions</a></label>
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login">
+      <form class="auth-form" id="login-form" action="/login" method="post">
+        <label for="chk" aria-hidden="true">Login</label>
+        <input type="text" id="login-email" name="username" placeholder="Username" value="<%= previousUsername %>" required>
+        <input type="password" id="login-password" name="password" placeholder="Password" required>
+        <div class="form-actions">
+          <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember" class="remember-label">Remember me</label>
+          </div>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <div class="social-login">
+        <p>Or sign in with</p>
+        <div class="social-buttons">
+          <button class="social-btn google">Google</button>
+          <button class="social-btn facebook">Facebook</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  padding: 2rem;; /* Add this to include padding in width/height calculation */
-  zoom: 0.9;
+  padding: 2rem; /* Add this to include padding in width/height calculation */
 }
 
 .auth-box {

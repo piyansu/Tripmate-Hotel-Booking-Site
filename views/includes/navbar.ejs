@@ -1,6 +1,9 @@
 <!-- navbar.ejs -->
 <nav class="navbar">
-  <a href="/" class="brand"><i class="fa-solid fa-umbrella-beach"></i></a>
+  <a href="/" class="brand">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <span style="margin-left: 0.5rem">TripMate</span>
+  </a>
 
   <!-- Hamburger menu (visible only on mobile) -->
   <div class="hamburger" id="hamburger">&#9776;</div>
@@ -47,7 +50,7 @@
           ><i class="fa-solid fa-user"></i>@<%= currentUser.username %></a
         >
         <a href="/listings/user-listings"
-          ><i class="fa-solid fa-house-chimney-user"></i>My Listings</a
+          ><i class="fa-solid fa-house-chimney-user"></i>Become a Host</a
         >
         <a href="/logout"
           ><i class="fa-solid fa-right-from-bracket"></i>Logout</a

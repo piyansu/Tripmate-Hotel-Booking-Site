@@ -807,16 +807,251 @@
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Responsive styles */
-@media (max-width: 743px) {
+/* Mobile First Approach - Small devices */
+@media (max-width: 576px) {
+  .detail-card {
+    flex-direction: column;
+  }
+  
+  .detail-image-container {
+    height: 40vh;
+  }
+  
+  .detail-image-container img {
+    height: 100%;
+  }
+  
+  .detail-info {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .detail-title {
+    font-size: 1.8rem;
+  }
+  
+  .detail-location {
+    font-size: 1rem;
+  }
+  
+  .detail-price {
+    font-size: 1.5rem;
+    padding: 0.4rem 1.2rem;
+  }
+  
+  .detail-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .detail-actions {
+    flex-direction: column;
+  }
+  
+  .btn-book {
+    width: 100%;
+  }
+  
+  .review-section, .reviews-display {
+    padding: 1.5rem;
+  }
+  
+  .review-section h3, .reviews-title {
+    font-size: 1.5rem;
+  }
+  
+  .review-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .review-item {
+    padding: 1rem;
+  }
+  
   .my-map h2 {
-    font-size: 18px;
-    padding: 0 16px;
+    font-size: 1.5rem;
+  }
+  
+  #map {
+    height: 250px;
+  }
+  
+  /* Make sure rating stars are always visible */
+  .rating-stars {
+    display: flex !important;
+  }
+  
+  .rating-slider {
+    display: none !important;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 577px) and (max-width: 767px) {
+  .detail-card {
+    flex-direction: column;
+  }
+  
+  .detail-image-container {
+    height: 50vh;
+  }
+  
+  .detail-info {
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  .detail-title {
+    font-size: 2.2rem;
+  }
+  
+  .review-list {
+    grid-template-columns: 1fr;
   }
   
   #map {
     height: 300px;
-    border-radius: 8px;
+  }
+  
+  /* Make sure rating stars are always visible */
+  .rating-stars {
+    display: flex !important;
+  }
+  
+  .rating-slider {
+    display: none !important;
+  }
+}
+
+/* Large devices */
+@media (min-width: 768px) and (max-width: 991px) {
+  .detail-image-container {
+    width: 50%;
+  }
+  
+  .detail-info {
+    width: 50%;
+    padding: 2rem;
+  }
+  
+  .detail-title {
+    font-size: 2rem;
+  }
+  
+  .detail-price {
+    font-size: 1.6rem;
+  }
+  
+  .review-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Extra large devices */
+@media (min-width: 992px) {
+  .detail-image-container {
+    width: 55%;
+  }
+  
+  .detail-info {
+    width: 45%;
+    padding: 3rem;
+  }
+  
+  .review-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  #map {
+    height: 450px;
+  }
+}
+
+/* Fix for review forms on smaller screens */
+@media (max-width: 767px) {
+  .review-form-grid {
+    display: block;
+  }
+  
+  .rating-container, .comment-container {
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* Fix for vertical spacing on smaller screens */
+@media (max-width: 576px) {
+  .detail-container {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+  
+  .review-section, .reviews-display {
+    margin-top: 1.5rem;
+  }
+  
+  .my-map {
+    padding: 16px 0;
+  }
+  
+  .my-map h2 {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Improve touchability on mobile devices */
+@media (max-width: 767px) {
+  .btn-edit, .btn-delete, .btn-book, .review-submit {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  
+  .review-delete {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .rating-stars label {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Adjust font sizes for better readability on very small screens */
+@media (max-width: 375px) {
+  .detail-title {
+    font-size: 1.5rem;
+  }
+  
+  .detail-location {
+    font-size: 0.9rem;
+  }
+  
+  .detail-price {
+    font-size: 1.3rem;
+  }
+  
+  .detail-description {
+    font-size: 0.9rem;
+  }
+  
+  .review-section h3, .reviews-title {
+    font-size: 1.3rem;
+  }
+  
+  .my-map h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Override the slider/star toggle for all screen sizes */
+@media (max-width: 768px) {
+  .rating-stars {
+    display: flex !important;
+  }
+  
+  .rating-slider {
+    display: none !important;
   }
 }

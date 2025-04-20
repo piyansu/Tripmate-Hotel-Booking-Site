@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+// Require Listing Model
+const Listing = require("./models/listings.js");
 // Setup Mongoose
 const mongoose = require("mongoose");
 
@@ -49,11 +51,8 @@ const store = MongoStore.create({
   touchAfter: 24 * 60 * 60,
   crypto: {
     secret: process.env.SECRET,
-
   },
 });
-
-
 
 app.use(
   session({
@@ -68,8 +67,6 @@ app.use(
     },
   })
 );
-
-
 
 // Setup Flash
 app.use(flash());
@@ -95,10 +92,11 @@ app.use((req, res, next) => {
 });
 
 // Connect to MongoDB
-// mongoose
-//   .connect("mongodb+srv://piyansu:qbPfwbNQ0TdUJZM4@cluster0.uqo9cw5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-//   .then(() => console.log("Connected to mongoDB"))
-//   .catch((err) => console.log(err));
+// mongoose.connect("mongodb://localhost:27017/tripmate", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   ssl: false,
+// });
 
 mongoose
   .connect(process.env.ATLASDB_URL)
@@ -106,8 +104,9 @@ mongoose
   .catch((err) => console.log(err));
 
 // Root Route
-app.get("/", (req, res) => {
-  res.render("listings/home");
+app.get("/", async (req, res) => {
+  const randomListings = await Listing.aggregate([{ $sample: { size: 8 } }]);
+  res.render("listings/home", { featured: randomListings });
 });
 
 // Setup Routes

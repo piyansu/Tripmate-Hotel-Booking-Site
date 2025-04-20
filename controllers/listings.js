@@ -1,11 +1,25 @@
 const Listing = require("../models/listings.js");
 const axios = require("axios");
-require('dotenv').config();
+require("dotenv").config();
 
 module.exports.listings = async (req, res, next) => {
-  const listings = await Listing.find({ owner: { $ne: req.user._id } }).sort({
-    title: 1,
-  });
+  let listings;
+  const { location } = req.query;
+
+  if (location) {
+    // If a location is specified in the query, filter by location (case-insensitive)
+    const searchRegex = new RegExp(location, "i");
+    listings = await Listing.find({ location: searchRegex });
+  } else if (req.isAuthenticated()) {
+    // Show listings not owned by the user
+    listings = await Listing.find({ owner: { $ne: req.user._id } }).sort({
+      title: 1,
+    });
+  } else {
+    // Show all listings
+    listings = await Listing.find({}).sort({ title: 1 });
+  }
+
   res.render("listings/index", { data: listings });
 };
 
@@ -107,4 +121,13 @@ module.exports.deletelistings = async (req, res, next) => {
   const result = await Listing.findByIdAndDelete(req.params.id);
   if (!result) return res.status(404).render("listings/error");
   res.redirect("/listings/user-listings");
+};
+
+module.exports.renderbookingform = async (req, res) => {
+    const listing = await Listing.findById(req.params.id).populate("reviews");
+    if (!listing) {
+      req.flash("error", "Listing not found");
+      return res.redirect("/listings");
+    }
+    res.render("listings/booking", { listing });
 };

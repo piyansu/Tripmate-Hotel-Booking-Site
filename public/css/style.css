@@ -232,7 +232,6 @@ body {
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
-
 .pc-only-links a {
   margin-right: 3rem;
 }
@@ -286,7 +285,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-left: 1.7rem;
+    margin-left: 0.6rem;
   }
   /* Show mobile-only links and hide desktop-only elements */
   .mobile-only-links {
