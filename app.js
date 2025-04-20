@@ -91,17 +91,17 @@ app.use((req, res, next) => {
   next();
 });
 
-//Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/tripmate", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: false,
-});
+// Connect to MongoDB
+// mongoose.connect("mongodb://localhost:27017/tripmate", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   ssl: false,
+// });
 
-// mongoose
-//   .connect(process.env.ATLASDB_URL)
-//   .then(() => console.log("Connected to mongoDB"))
-//   .catch((err) => console.log(err));
+mongoose
+  .connect(process.env.ATLASDB_URL)
+  .then(() => console.log("Connected to mongoDB"))
+  .catch((err) => console.log(err));
 
 // Root Route
 app.get("/", async (req, res) => {
