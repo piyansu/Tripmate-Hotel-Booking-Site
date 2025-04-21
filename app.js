@@ -92,11 +92,6 @@ app.use((req, res, next) => {
 });
 
 // Connect to MongoDB
-// mongoose.connect("mongodb://localhost:27017/tripmate", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   ssl: false,
-// });
 
 mongoose
   .connect(process.env.ATLASDB_URL)

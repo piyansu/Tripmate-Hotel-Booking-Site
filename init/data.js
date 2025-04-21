@@ -1,351 +1,351 @@
 const sampleListings = [
   {
-    title: "Cozy Beachfront Cottage",
+    title: "Luxury Beach Resort in Goa",
     description:
-      "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
+      "Experience the ultimate beach getaway at this luxury resort in Goa with private beach access and stunning sea views.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1572431447238-425af66a273b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z29hJTIwYmVhY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1500,
-    location: "Malibu",
-    country: "United States",
+    price: 15000,
+    location: "Goa",
+    country: "India",
   },
   {
-    title: "Modern Loft in Downtown",
+    title: "Modern Apartment in Mumbai",
     description:
-      "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
+      "Stay in the heart of Mumbai in this stylish apartment with gorgeous views of the Arabian Sea.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1580581096469-7efb0a93b6c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVtYmFpfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1200,
-    location: "New York City",
-    country: "United States",
+    price: 12000,
+    location: "Mumbai",
+    country: "India",
   },
   {
-    title: "Mountain Retreat",
+    title: "Mountain Retreat in Shimla",
     description:
-      "Unplug and unwind in this peaceful mountain cabin. Surrounded by nature, it's a perfect place to recharge.",
+      "Unplug and unwind in this peaceful mountain cabin. Surrounded by pine forests with spectacular Himalayan views.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1000,
-    location: "Aspen",
-    country: "United States",
-  },
-  {
-    title: "Historic Villa in Tuscany",
-    description:
-      "Experience the charm of Tuscany in this beautifully restored villa. Explore the rolling hills and vineyards.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2500,
-    location: "Florence",
-    country: "Italy",
-  },
-  {
-    title: "Secluded Treehouse Getaway",
-    description:
-      "Live among the treetops in this unique treehouse retreat. A true nature lover's paradise.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 800,
-    location: "Portland",
-    country: "United States",
-  },
-  {
-    title: "Beachfront Paradise",
-    description:
-      "Step out of your door onto the sandy beach. This beachfront condo offers the ultimate relaxation.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2000,
-    location: "Cancun",
-    country: "Mexico",
-  },
-  {
-    title: "Rustic Cabin by the Lake",
-    description:
-      "Spend your days fishing and kayaking on the serene lake. This cozy cabin is perfect for outdoor enthusiasts.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 900,
-    location: "Lake Tahoe",
-    country: "United States",
-  },
-  {
-    title: "Luxury Penthouse with City Views",
-    description:
-      "Indulge in luxury living with panoramic city views from this stunning penthouse apartment.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 3500,
-    location: "Los Angeles",
-    country: "United States",
-  },
-  {
-    title: "Ski-In/Ski-Out Chalet",
-    description:
-      "Hit the slopes right from your doorstep in this ski-in/ski-out chalet in the Swiss Alps.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 3000,
-    location: "Verbier",
-    country: "Switzerland",
-  },
-  {
-    title: "Safari Lodge in the Serengeti",
-    description:
-      "Experience the thrill of the wild in a comfortable safari lodge. Witness the Great Migration up close.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Serengeti National Park",
-    country: "Tanzania",
-  },
-  {
-    title: "Historic Canal House",
-    description:
-      "Stay in a piece of history in this beautifully preserved canal house in Amsterdam's iconic district.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1800,
-    location: "Amsterdam",
-    country: "Netherlands",
-  },
-  {
-    title: "Private Island Retreat",
-    description:
-      "Have an entire island to yourself for a truly exclusive and unforgettable vacation experience.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1618140052121-39fc6db33972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9kZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1626621934191-583a66b8d866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hpbWxhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
     price: 10000,
-    location: "Fiji",
-    country: "Fiji",
+    location: "Shimla",
+    country: "India",
   },
   {
-    title: "Charming Cottage in the Cotswolds",
+    title: "Heritage Haveli in Jaipur",
     description:
-      "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
+      "Experience the royal charm of Rajasthan in this beautifully restored heritage haveli with traditional architecture.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1599661046289-e31897846e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amFpcHVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1200,
-    location: "Cotswolds",
-    country: "United Kingdom",
+    price: 25000,
+    location: "Jaipur",
+    country: "India",
   },
   {
-    title: "Historic Brownstone in Boston",
+    title: "Treehouse Stay in Wayanad",
     description:
-      "Step back in time in this elegant historic brownstone located in the heart of Boston.",
+      "Live among the treetops in this unique treehouse retreat in the lush forests of Kerala.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 2200,
-    location: "Boston",
-    country: "United States",
+    price: 8000,
+    location: "Wayanad",
+    country: "India",
   },
   {
-    title: "Beachfront Bungalow in Bali",
+    title: "Riverside Resort in Rishikesh",
     description:
-      "Relax on the sandy shores of Bali in this beautiful beachfront bungalow with a private pool.",
+      "Wake up to the sound of the Ganges in this peaceful riverside resort offering yoga and meditation sessions.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602391833977-358a52198938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1591017683260-c45649713746?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmlzaGlrZXNofGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1800,
-    location: "Bali",
-    country: "Indonesia",
+    price: 12000,
+    location: "Rishikesh",
+    country: "India",
   },
   {
-    title: "Mountain View Cabin in Banff",
+    title: "Lakeside Cottage in Udaipur",
     description:
-      "Enjoy breathtaking mountain views from this cozy cabin in the Canadian Rockies.",
+      "Spend your days admiring the beautiful Lake Pichola from this charming cottage in the City of Lakes.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1600689505261-cdf9bd9deb37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dWRhaXB1cnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1500,
-    location: "Banff",
-    country: "Canada",
+    price: 9000,
+    location: "Udaipur",
+    country: "India",
   },
   {
-    title: "Art Deco Apartment in Miami",
+    title: "Luxury Penthouse in Gurugram",
     description:
-      "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
+      "Indulge in luxury living with panoramic city views from this stunning penthouse apartment in Cyberhub.",
     image: {
       filename: "listingimage",
-      url: "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bHV4dXJ5JTIwYXBhcnRtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1600,
-    location: "Miami",
-    country: "United States",
+    price: 20000,
+    location: "Gurugram",
+    country: "India",
   },
   {
-    title: "Tropical Villa in Phuket",
+    title: "Ski Chalet in Gulmarg",
     description:
-      "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
+      "Hit the slopes right from your doorstep in this cozy ski chalet in the winter wonderland of Kashmir.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1470165301023-58dab8118cc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VsbWFyZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 3000,
-    location: "Phuket",
-    country: "Thailand",
+    price: 15000,
+    location: "Gulmarg",
+    country: "India",
   },
   {
-    title: "Historic Castle in Scotland",
+    title: "Wildlife Lodge in Ranthambore",
     description:
-      "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
+      "Experience the thrill of the wild in a comfortable safari lodge near Ranthambore National Park.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGlnZXIlMjBzYWZhcml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 4000,
-    location: "Scottish Highlands",
-    country: "United Kingdom",
+    price: 18000,
+    location: "Ranthambore",
+    country: "India",
   },
   {
-    title: "Desert Oasis in Dubai",
+    title: "Historic Houseboat in Srinagar",
     description:
-      "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
+      "Stay in a beautifully carved wooden houseboat on the serene Dal Lake with stunning mountain views.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2Vib2F0JTIwc3JpbmFnYXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 5000,
-    location: "Dubai",
-    country: "United Arab Emirates",
+    price: 12000,
+    location: "Srinagar",
+    country: "India",
   },
   {
-    title: "Rustic Log Cabin in Montana",
+    title: "Private Island Resort in Lakshadweep",
     description:
-      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
+      "Have an exclusive experience in this island resort with pristine beaches and crystal clear waters.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFrc2hhZHdlZXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1100,
-    location: "Montana",
-    country: "United States",
+    price: 35000,
+    location: "Lakshadweep",
+    country: "India",
   },
   {
-    title: "Beachfront Villa in Greece",
+    title: "Charming Cottage in Darjeeling",
     description:
-      "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
+      "Escape to the picturesque hills of Darjeeling in this quaint cottage with views of the Kanchenjunga.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmlsbGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1544211209-97819796dd01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyamVlbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 2500,
-    location: "Mykonos",
-    country: "Greece",
+    price: 8000,
+    location: "Darjeeling",
+    country: "India",
   },
   {
-    title: "Eco-Friendly Treehouse Retreat",
+    title: "Colonial Bungalow in Ooty",
     description:
-      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
+      "Step back in time in this elegant colonial bungalow located in the heart of the Nilgiris.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b290eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 750,
-    location: "Costa Rica",
-    country: "Costa Rica",
+    price: 14000,
+    location: "Ooty",
+    country: "India",
   },
   {
-    title: "Historic Cottage in Charleston",
+    title: "Backwater Retreat in Alleppey",
     description:
-      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
+      "Relax on the tranquil backwaters of Kerala in this beautiful waterfront villa with a private pool.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1590766940554-111c3c58c2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWxsZXBwZXl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1600,
-    location: "Charleston",
-    country: "United States",
+    price: 12000,
+    location: "Alleppey",
+    country: "India",
   },
   {
-    title: "Modern Apartment in Tokyo",
+    title: "Mountain View Villa in Manali",
     description:
-      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
+      "Enjoy breathtaking Himalayan views from this cozy villa surrounded by apple orchards and pine forests.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1586833280077-13ab2fd0c4af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuYWxpfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 2000,
-    location: "Tokyo",
-    country: "Japan",
+    price: 15000,
+    location: "Manali",
+    country: "India",
   },
   {
-    title: "Lakefront Cabin in New Hampshire",
+    title: "Art Deco Apartment in Kolkata",
     description:
-      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
+      "Step into the charm of old Calcutta in this stylish Art Deco apartment in Park Street.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1536421469767-80559bb6f5e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a29sa2F0YXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1200,
-    location: "New Hampshire",
-    country: "United States",
+    price: 9000,
+    location: "Kolkata",
+    country: "India",
   },
   {
-    title: "Luxury Villa in the Maldives",
+    title: "Tropical Villa in Andaman",
     description:
-      "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
+      "Escape to a tropical paradise in this luxurious villa with a private beach access in Havelock Island.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1590123699232-127c6e4d6209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5kYW1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 6000,
-    location: "Maldives",
-    country: "Maldives",
+    price: 20000,
+    location: "Andaman",
+    country: "India",
   },
   {
-    title: "Ski Chalet in Aspen",
+    title: "Historic Fort Stay in Jodhpur",
     description:
-      "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+      "Live like royalty in this historic fort converted into a heritage hotel with panoramic views of the Blue City.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1477587458883-47160a8ef3d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8am9kaHB1cnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
-    price: 4000,
-    location: "Aspen",
-    country: "United States",
+    price: 25000,
+    location: "Jodhpur",
+    country: "India",
   },
   {
-    title: "Secluded Beach House in Costa Rica",
+    title: "Desert Retreat in Jaisalmer",
     description:
-      "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
+      "Experience the magic of the Thar Desert in this luxury desert camp with traditional Rajasthani hospitality.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1537314258830-c2743589345e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amFpc2FsbWVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
-    price: 1800,
-    location: "Costa Rica",
-    country: "Costa Rica",
+    price: 18000,
+    location: "Jaisalmer",
+    country: "India",
+  },
+  {
+    title: "Rustic Cottage in Coorg",
+    description:
+      "Unplug and unwind in this cozy cottage surrounded by coffee plantations and misty hills of Coorg.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1628744404730-5f2288460f8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29vcmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 11000,
+    location: "Coorg",
+    country: "India",
+  },
+  {
+    title: "Beachfront Villa in Kovalam",
+    description:
+      "Enjoy the crystal-clear waters of the Arabian Sea in this beautiful beachfront villa in Kerala.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1583997052301-0042b33fc598?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a292YWxhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 16000,
+    location: "Kovalam",
+    country: "India",
+  },
+  {
+    title: "Eco-Friendly Retreat in Munnar",
+    description:
+      "Stay in an eco-friendly cottage nestled among the tea plantations of Munnar with stunning valley views.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1565004602745-718e1b0d44f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVubmFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 9000,
+    location: "Munnar",
+    country: "India",
+  },
+  {
+    title: "Historic Mansion in Pondicherry",
+    description:
+      "Experience the Franco-Tamil charm of Pondicherry in this beautifully restored mansion with a courtyard garden.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1589136777351-fad5a7a4d5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9uZGljaGVycnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 14000,
+    location: "Pondicherry",
+    country: "India",
+  },
+  {
+    title: "Modern Apartment in Bangalore",
+    description:
+      "Explore the Garden City from this modern and centrally located apartment near Cubbon Park.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmFuZ2Fsb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 13000,
+    location: "Bangalore",
+    country: "India",
+  },
+  {
+    title: "Lakefront Cottage in Nainital",
+    description:
+      "Spend your days by the Naini Lake in this cozy cottage with scenic views of the Kumaon hills.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1626269555515-cd5d5750f05f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmFpbml0YWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 12000,
+    location: "Nainital",
+    country: "India",
+  },
+  {
+    title: "Luxury Houseboat in Kumarakom",
+    description:
+      "Indulge in luxury on this traditional Kerala houseboat with modern amenities cruising through the backwaters.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1587922546307-776377f72914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2VyYWxhJTIwaG91c2Vib2F0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 24000,
+    location: "Kumarakom",
+    country: "India",
+  },
+  {
+    title: "Luxury Resort in Mashobra",
+    description:
+      "Enjoy the misty mountains in this luxurious resort nestled in the Himalayan forests near Shimla.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1587922546341-005af41c60cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGltYWxheWFuJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 18000,
+    location: "Mashobra",
+    country: "India",
+  },
+  {
+    title: "Secluded Beach House in Varkala",
+    description:
+      "Escape to a secluded beach house on the scenic cliffs of Varkala. Surf, practice yoga, and unwind.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1621789098261-4bbd9fc12524?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFya2FsYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 15000,
+    location: "Varkala",
+    country: "India",
   },
 ];
 

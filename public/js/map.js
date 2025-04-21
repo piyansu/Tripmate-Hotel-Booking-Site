@@ -1,18 +1,28 @@
-//Mapbox
-document.addEventListener("DOMContentLoaded", function() {
-  // Only initialize the map if the element exists
+document.addEventListener("DOMContentLoaded", function () {
   const mapElement = document.getElementById("map");
   if (!mapElement) return;
-
-  // Check if listingCoordinates is defined (it should be passed from the show template)
-  // Default to Kolkata coordinates if not available
-  const coordinates = typeof listingCoordinates !== 'undefined' ? 
-    listingCoordinates : [88.3406, 22.7505]; // [longitude, latitude]
   
-  // Initialize the map with listing coordinates
-  // Note: Leaflet uses [latitude, longitude] format while GeoJSON uses [longitude, latitude]
-  // So we need to reverse the coordinates
-  const map = L.map("map").setView([coordinates[1], coordinates[0]], 13);
+  console.log("Map coordinates received:", listingCoordinates); // Log coordinates for debugging
+  
+  // Ensure we have valid coordinates
+  let coordinates;
+  
+  if (Array.isArray(listingCoordinates) && listingCoordinates.length >= 2) {
+    coordinates = listingCoordinates;
+  } else {
+    // Default coordinates (Kolkata as fallback)
+    coordinates = [88.3406, 22.7505];
+    console.warn("Using default coordinates - invalid coordinates provided");
+  }
+  
+  // Leaflet expects [lat, lng] but GeoJSON uses [lng, lat]
+  // So we need to swap the coordinates for Leaflet
+  const lat = coordinates[1];
+  const lng = coordinates[0];
+  
+  console.log(`Setting map view to: lat=${lat}, lng=${lng}`);
+  
+  const map = L.map("map").setView([lat, lng], 13);
 
   L.tileLayer(
     "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=jjpRIB8r0mopVZf7hhWR",
@@ -24,14 +34,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   ).addTo(map);
 
-  // Add a marker at the listing location
-  const marker = L.marker([coordinates[1], coordinates[0]]).addTo(map);
-  
-  // Add a popup with listing info if title and location are available
-  if (typeof listingTitle !== 'undefined' && typeof listingLocation !== 'undefined') {
-    marker.bindPopup(`
-      <strong>${listingTitle}</strong><br>
-      <i class="fa-solid fa-location-dot"></i> ${listingLocation}
-    `).openPopup();
+  // Add marker with the same coordinate transformation
+  const marker = L.marker([lat, lng]).addTo(map);
+
+  if (listingTitle && listingLocation) {
+    marker
+      .bindPopup(
+        `<strong>${listingTitle}</strong><br><i class="fa-solid fa-location-dot"></i> ${listingLocation}`
+      )
+      .openPopup();
   }
+  
+  // Force map to recalculate its size if it was hidden
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 300);
 });
