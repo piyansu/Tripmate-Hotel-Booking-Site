@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const mapElement = document.getElementById("map");
   if (!mapElement) return;
   
-  console.log("Map coordinates received:", listingCoordinates); // Log coordinates for debugging
-  
   // Ensure we have valid coordinates
   let coordinates;
   

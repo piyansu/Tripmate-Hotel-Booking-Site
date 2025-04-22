@@ -2,8 +2,27 @@
 
 <div class="detail-container">
   <div class="detail-card">
-    <div class="detail-image-container">
-      <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+    <!-- Replace the existing detail-image-container with this code -->
+    <div class="photo-layout-container">
+      <div class="photo-grid">
+        <div class="main-photo">
+          <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+        </div>
+        <div class="side-photos">
+          <div class="side-photo-top">
+            <img
+              src="<%= listing.images && listing.images[1] ? listing.images[1].url : listing.image.url %>"
+              alt="<%= listing.title %>"
+            />
+          </div>
+          <div class="side-photo-bottom">
+            <img
+              src="<%= listing.images && listing.images[2] ? listing.images[2].url : listing.image.url %>"
+              alt="<%= listing.title %>"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="detail-info">
       <% if (listing.owner && listing.owner.username) { %>
@@ -20,9 +39,10 @@
       </div>
       <p class="detail-description"><%= listing.description %></p>
       <div class="detail-actions">
-        <% if ((currentUser && listing.owner && listing.owner._id &&
-        currentUser._id.equals(listing.owner._id)) || currentUser._id ==
-        "6801126fc3625bbece6291e2") { %>
+        <% if ( (currentUser && listing.owner && listing.owner._id &&
+        currentUser._id.equals(listing.owner._id)) || (currentUser &&
+        currentUser._id.toString() === "6801126fc3625bbece6291e2") ) { %>
+
         <form action="/listings/<%= listing._id %>/edit" method="GET">
           <button class="btn-edit">
             <i class="fa-solid fa-pen-to-square"></i> Edit
