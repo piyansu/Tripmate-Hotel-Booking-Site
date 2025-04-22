@@ -5,7 +5,15 @@ const sampleListings = [
       "Experience the ultimate beach getaway at this luxury resort in Goa with private beach access and stunning sea views.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1572431447238-425af66a273b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z29hJTIwYmVhY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI2MTY4Mzg0NjgyMzkwNzc5Mg%3D%3D/original/fed854a1-4887-468f-8c00-2f5509fdaf4a.jpeg?im_w=1200",
+        filename: "listingimage1"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI2MTY4Mzg0NjgyMzkwNzc5Mg%3D%3D/original/94552e17-21e1-43c0-bbcb-548247e4c098.jpeg?im_w=720",
+        filename: "listingimage1"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI2MTY4Mzg0NjgyMzkwNzc5Mg%3D%3D/original/17680e5c-eb9f-48d4-8a6e-40fc9ebca17a.jpeg?im_w=1200",
         filename: "listingimage1"
       }
     ],
@@ -19,7 +27,15 @@ const sampleListings = [
       "Stay in the heart of Mumbai in this stylish apartment with gorgeous views of the Arabian Sea.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1580581096469-7efb0a93b6c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVtYmFpfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1242075072025933416/original/9ea1d0b6-1179-42b3-a6fc-a6e051066ae8.jpeg?im_w=1200",
+        filename: "listingimage2"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1242075072025933416/original/c4440a0c-68af-499d-822b-1d9d093d485c.jpeg?im_w=720",
+        filename: "listingimage2"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1284562226470305867/original/366f47c5-dd7d-4955-9a31-7f86e1fad781.jpeg?im_w=720",
         filename: "listingimage2"
       }
     ],
@@ -33,7 +49,15 @@ const sampleListings = [
       "Unplug and unwind in this peaceful mountain cabin. Surrounded by pine forests with spectacular Himalayan views.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1626621934191-583a66b8d866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hpbWxhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1354870411219287205/original/566f11a5-42f6-49bc-ab8d-c00f60f4228c.jpeg?im_w=1200",
+        filename: "listingimage3"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1354870411219287205/original/265a2fca-c838-48a3-a2ab-f3bdd031d666.jpeg?im_w=720",
+        filename: "listingimage3"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1354870411219287205/original/c7d8ff77-cfe5-4f43-93c3-139127c2ca94.jpeg?im_w=1200",
         filename: "listingimage3"
       }
     ],
@@ -47,7 +71,15 @@ const sampleListings = [
       "Experience the royal charm of Rajasthan in this beautifully restored heritage haveli with traditional architecture.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1599661046289-e31897846e41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amFpcHVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1392633227625396223/original/43970c5e-70a3-4e0a-ac7e-56b1d3df461b.jpeg?im_w=720",
+        filename: "listingimage4"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1392633227625396223/original/d71dc718-e06c-4369-94d5-d247504dcaa6.jpeg?im_w=720",
+        filename: "listingimage4"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1392633227625396223/original/3499b4bb-b534-4f0d-9d2e-5eb05bd9834f.jpeg?im_w=720",
         filename: "listingimage4"
       }
     ],
@@ -56,12 +88,20 @@ const sampleListings = [
     country: "India",
   },
   {
-    title: "Treehouse Stay in Wayanad",
+    title: "Treehouse Stay in Kerala",
     description:
       "Live among the treetops in this unique treehouse retreat in the lush forests of Kerala.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODA2NTY5Mg%3D%3D/original/a01ac36a-d12b-4fac-81bc-72f772784b6a.jpeg?im_w=1200",
+        filename: "listingimage5"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODA2NTY5Mg%3D%3D/original/ecb879d7-010f-463d-9ee4-e68fa2b9b87f.jpeg?im_w=720",
+        filename: "listingimage5"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODA2NTY5Mg%3D%3D/original/c81fb3a9-62d1-400b-a113-984612bc240f.jpeg?im_w=720",
         filename: "listingimage5"
       }
     ],
@@ -75,7 +115,15 @@ const sampleListings = [
       "Wake up to the sound of the Ganges in this peaceful riverside resort offering yoga and meditation sessions.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1591017683260-c45649713746?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmlzaGlrZXNofGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1354081677733225915/original/4f66db3f-5367-4546-ad59-85713bea158d.jpeg?im_w=1200",
+        filename: "listingimage6"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1354081677733225915/original/8c683a89-c9ea-4849-b93f-c178bdafb734.jpeg?im_w=720",
+        filename: "listingimage6"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1354081677733225915/original/738856b9-6dcd-46d9-87d8-8d38c1e6ac65.jpeg?im_w=1440",
         filename: "listingimage6"
       }
     ],
@@ -89,7 +137,15 @@ const sampleListings = [
       "Spend your days admiring the beautiful Lake Pichola from this charming cottage in the City of Lakes.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600689505261-cdf9bd9deb37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dWRhaXB1cnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-620733421639285734/original/f84927e5-ff73-48d6-bad0-6d58cd6efece.jpeg?im_w=1200",
+        filename: "listingimage7"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/4b376da5-9377-4507-8f33-02b28c5d3fc0.jpg?im_w=720",
+        filename: "listingimage7"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-620733421639285734/original/7b2bec1f-62ed-443b-b053-30282f569bb1.jpeg?im_w=1200",
         filename: "listingimage7"
       }
     ],
@@ -103,7 +159,15 @@ const sampleListings = [
       "Indulge in luxury living with panoramic city views from this stunning penthouse apartment in Cyberhub.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bHV4dXJ5JTIwYXBhcnRtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0ODI1OTg3MzU0MTQ1NjgyMg%3D%3D/original/812e768d-3ab2-4cb1-bf55-42bb1a0bc63e.jpeg?im_w=1200",
+        filename: "listingimage8"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1248259873541456822/original/715c37e8-5727-4c34-a04d-e276ebd38151.jpeg?im_w=720",
+        filename: "listingimage8"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0ODI1OTg3MzU0MTQ1NjgyMg%3D%3D/original/79e4a493-ba1f-4a0b-8ec8-54ca0115887a.jpeg?im_w=720",
         filename: "listingimage8"
       }
     ],
@@ -112,40 +176,20 @@ const sampleListings = [
     country: "India",
   },
   {
-    title: "Ski Chalet in Gulmarg",
-    description:
-      "Hit the slopes right from your doorstep in this cozy ski chalet in the winter wonderland of Kashmir.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3VsbWFyZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage9"
-      }
-    ],
-    price: 15000,
-    location: "Gulmarg",
-    country: "India",
-  },
-  {
-    title: "Wildlife Lodge in Ranthambore",
-    description:
-      "Experience the thrill of the wild in a comfortable safari lodge near Ranthambore National Park.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGlnZXIlMjBzYWZhcml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage10"
-      }
-    ],
-    price: 18000,
-    location: "Ranthambore",
-    country: "India",
-  },
-  {
     title: "Historic Houseboat in Srinagar",
     description:
       "Stay in a beautifully carved wooden houseboat on the serene Dal Lake with stunning mountain views.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2Vib2F0JTIwc3JpbmFnYXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEwOTgzNjg1MjY5ODE2OTk2Mw%3D%3D/original/663803e7-a563-4ae3-9051-d872a5081e4d.jpeg?im_w=1200",
+        filename: "listingimage11"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1109836852698169963/original/a5621270-ba3a-48b4-b17e-a866b7758b86.jpeg?im_w=720",
+        filename: "listingimage11"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTEwOTgzNjg1MjY5ODE2OTk2Mw%3D%3D/original/aab2aeb2-ff66-471b-9709-9222d9c687b7.jpeg?im_w=720",
         filename: "listingimage11"
       }
     ],
@@ -159,7 +203,15 @@ const sampleListings = [
       "Have an exclusive experience in this island resort with pristine beaches and crystal clear waters.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFrc2hhZHdlZXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1085257480840832086/original/1e346afd-c21e-4f41-9c16-5d1b964292e9.jpeg?im_w=1200",
+        filename: "listingimage12"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1085257480840832086/original/34d297bd-106e-4749-996f-7ea5f22cf15b.jpeg?im_w=1200",
+        filename: "listingimage12"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1085257480840832086/original/4286a249-55cc-4212-b7fe-cf34e24cffcc.jpeg?im_w=720",
         filename: "listingimage12"
       }
     ],
@@ -173,7 +225,15 @@ const sampleListings = [
       "Escape to the picturesque hills of Darjeeling in this quaint cottage with views of the Kanchenjunga.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544211209-97819796dd01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyamVlbGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/f85b24c3-f67e-402c-b3b3-e418a434fa1b.jpg?im_w=1200",
+        filename: "listingimage13"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/dd79d4e8-e435-42c6-bb83-617894f93372.jpg?im_w=720",
+        filename: "listingimage13"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/371b45bc-29c5-46ed-b359-8a48a4ac06f7.jpg?im_w=1200",
         filename: "listingimage13"
       }
     ],
@@ -182,40 +242,20 @@ const sampleListings = [
     country: "India",
   },
   {
-    title: "Colonial Bungalow in Ooty",
-    description:
-      "Step back in time in this elegant colonial bungalow located in the heart of the Nilgiris.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b290eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage14"
-      }
-    ],
-    price: 14000,
-    location: "Ooty",
-    country: "India",
-  },
-  {
-    title: "Backwater Retreat in Alleppey",
-    description:
-      "Relax on the tranquil backwaters of Kerala in this beautiful waterfront villa with a private pool.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1590766940554-111c3c58c2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWxsZXBwZXl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage15"
-      }
-    ],
-    price: 12000,
-    location: "Alleppey",
-    country: "India",
-  },
-  {
     title: "Mountain View Villa in Manali",
     description:
       "Enjoy breathtaking Himalayan views from this cozy villa surrounded by apple orchards and pine forests.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1586833280077-13ab2fd0c4af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuYWxpfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1273788706221058538/original/a2807018-8dc5-40ab-b25b-d515b278435d.jpeg?im_w=720",
+        filename: "listingimage16"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1273788706221058538/original/7c3fb3a7-e43d-477a-8f01-1ee62c72feef.jpeg?im_w=1200",
+        filename: "listingimage16"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/hosting/Hosting-1273788706221058538/original/07476753-25c8-4d64-8837-3feb4042be19.jpeg?im_w=720",
         filename: "listingimage16"
       }
     ],
@@ -229,8 +269,16 @@ const sampleListings = [
       "Step into the charm of old Calcutta in this stylish Art Deco apartment in Park Street.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1536421469767-80559bb6f5e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a29sa2F0YXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/56e74aba-46ea-40ec-b4c4-01ca8472f34b.jpg?im_w=1200",
         filename: "listingimage17"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/1ab18d9d-a071-4d0d-937f-933c86a77178.jpg?im_w=720",
+        filename: "listingimage101"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/8e4f0f8a-134b-4f15-aea6-69a0e5514a7c.jpg?im_w=720",
+        filename: "listingimage102"
       }
     ],
     price: 9000,
@@ -243,7 +291,15 @@ const sampleListings = [
       "Escape to a tropical paradise in this luxurious villa with a private beach access in Havelock Island.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1590123699232-127c6e4d6209?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5kYW1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/4263ca85-b34c-46ca-af21-ea70ab8320d9.jpg?im_w=1200",
+        filename: "listingimage18"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/a271a185-9db2-4ae1-a642-16a50250a867.jpg?im_w=720",
+        filename: "listingimage18"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/ff7e0bf4-198f-446a-ae5e-412aff6bbefb.jpg?im_w=1200",
         filename: "listingimage18"
       }
     ],
@@ -252,54 +308,20 @@ const sampleListings = [
     country: "India",
   },
   {
-    title: "Historic Fort Stay in Jodhpur",
-    description:
-      "Live like royalty in this historic fort converted into a heritage hotel with panoramic views of the Blue City.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1477587458883-47160a8ef3d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8am9kaHB1cnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage19"
-      }
-    ],
-    price: 25000,
-    location: "Jodhpur",
-    country: "India",
-  },
-  {
-    title: "Desert Retreat in Jaisalmer",
-    description:
-      "Experience the magic of the Thar Desert in this luxury desert camp with traditional Rajasthani hospitality.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1537314258830-c2743589345e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amFpc2FsbWVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage20"
-      }
-    ],
-    price: 18000,
-    location: "Jaisalmer",
-    country: "India",
-  },
-  {
-    title: "Rustic Cottage in Coorg",
-    description:
-      "Unplug and unwind in this cozy cottage surrounded by coffee plantations and misty hills of Coorg.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1628744404730-5f2288460f8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29vcmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage21"
-      }
-    ],
-    price: 11000,
-    location: "Coorg",
-    country: "India",
-  },
-  {
     title: "Beachfront Villa in Kovalam",
     description:
       "Enjoy the crystal-clear waters of the Arabian Sea in this beautiful beachfront villa in Kerala.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1583997052301-0042b33fc598?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a292YWxhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/96df44ce-e69c-48c8-9243-4432960ec6c4.jpg?im_w=1200",
+        filename: "listingimage22"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/ae303e40-7b4f-44e2-a330-dbece161da40.jpg?im_w=720",
+        filename: "listingimage22"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/0e56b092-722a-4c12-9e35-59a0d4dc9cae.jpg?im_w=720",
         filename: "listingimage22"
       }
     ],
@@ -308,26 +330,20 @@ const sampleListings = [
     country: "India",
   },
   {
-    title: "Eco-Friendly Retreat in Munnar",
-    description:
-      "Stay in an eco-friendly cottage nestled among the tea plantations of Munnar with stunning valley views.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1565004602745-718e1b0d44f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVubmFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage23"
-      }
-    ],
-    price: 9000,
-    location: "Munnar",
-    country: "India",
-  },
-  {
     title: "Historic Mansion in Pondicherry",
     description:
       "Experience the Franco-Tamil charm of Pondicherry in this beautifully restored mansion with a courtyard garden.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1589136777351-fad5a7a4d5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9uZGljaGVycnl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-577434974644673655/original/4489c8c3-dbca-4566-ae7c-dfa23c4e9ba0.jpeg?im_w=1200",
+        filename: "listingimage24"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-582279790781305134/original/bf9801b4-28f1-4324-acaa-f5fb2e6d0ed0.jpeg?im_w=720",
+        filename: "listingimage24"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-582279790781305134/original/25194d95-8e70-4d99-a294-6eadaf2f9b01.jpeg?im_w=720",
         filename: "listingimage24"
       }
     ],
@@ -341,7 +357,15 @@ const sampleListings = [
       "Explore the Garden City from this modern and centrally located apartment near Cubbon Park.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmFuZ2Fsb3JlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-986176172755444195/original/0af0925a-3e63-4d8d-b6f8-90c20e95eaa2.jpeg?im_w=1200",
+        filename: "listingimage25"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-986176172755444195/original/848d82f1-2811-431f-a0ce-7de0bc735b74.jpeg?im_w=720",
+        filename: "listingimage25"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/ef3b1aa3-3297-459f-a17a-918d4374e12f.jpg?im_w=720",
         filename: "listingimage25"
       }
     ],
@@ -355,54 +379,20 @@ const sampleListings = [
       "Spend your days by the Naini Lake in this cozy cottage with scenic views of the Kumaon hills.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1626269555515-cd5d5750f05f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmFpbml0YWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        url: "https://a0.muscache.com/im/pictures/63be195f-6031-4716-8ce0-835ed513f80d.jpg?im_w=1200",
+        filename: "listingimage26"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1068545728205501497/original/e296573b-a55d-4051-9fe2-f29e341c05e0.jpeg?im_w=720",
+        filename: "listingimage26"
+      },
+      {
+        url: "https://a0.muscache.com/im/pictures/miso/Hosting-1068545728205501497/original/fb55bf88-64c6-40a0-a390-648597b019a8.jpeg?im_w=1200",
         filename: "listingimage26"
       }
     ],
     price: 12000,
     location: "Nainital",
-    country: "India",
-  },
-  {
-    title: "Luxury Houseboat in Kumarakom",
-    description:
-      "Indulge in luxury on this traditional Kerala houseboat with modern amenities cruising through the backwaters.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1587922546307-776377f72914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2VyYWxhJTIwaG91c2Vib2F0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage27"
-      }
-    ],
-    price: 24000,
-    location: "Kumarakom",
-    country: "India",
-  },
-  {
-    title: "Luxury Resort in Mashobra",
-    description:
-      "Enjoy the misty mountains in this luxurious resort nestled in the Himalayan forests near Shimla.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1587922546341-005af41c60cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGltYWxheWFuJTIwcmVzb3J0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage28"
-      }
-    ],
-    price: 18000,
-    location: "Mashobra",
-    country: "India",
-  },
-  {
-    title: "Secluded Beach House in Varkala",
-    description:
-      "Escape to a secluded beach house on the scenic cliffs of Varkala. Surf, practice yoga, and unwind.",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1621789098261-4bbd9fc12524?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFya2FsYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-        filename: "listingimage29"
-      }
-    ],
-    price: 15000,
-    location: "Varkala",
     country: "India",
   },
 ];

@@ -5,7 +5,7 @@
     <div class="booking-left">
       <div class="listing-preview">
         <div class="listing-preview-image">
-          <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+          <img src="<%= listing.images && listing.images[0] ? listing.images[0].url : '/images/placeholder.jpg' %>" alt="<%= listing.title %>" />
         </div>
         <div class="listing-preview-info">
           <h3><%= listing.title %></h3>
@@ -124,7 +124,7 @@
         <h3>Price Details</h3>
         <div class="listing-preview-mini">
           <div class="listing-preview-image-mini">
-            <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+            <img src="<%= listing.images && listing.images[0] ? listing.images[0].url : '/images/placeholder.jpg' %>" alt="<%= listing.title %>" />
           </div>
           <div class="listing-preview-info-mini">
             <h4><%= listing.title %></h4>

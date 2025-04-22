@@ -32,14 +32,14 @@ const initdb = async () => {
 };
 
 // Call the function
-//initdb();
+initdb();
 
-mongoose.connect(
-  "mongodb+srv://piyansu:qbPfwbNQ0TdUJZM4@cluster0.uqo9cw5.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0",
-  {
-    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-  }
-);
+// mongoose.connect(
+//   "mongodb+srv://piyansu:qbPfwbNQ0TdUJZM4@cluster0.uqo9cw5.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0",
+//   {
+//     serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+//   }
+// );
 
 
 const updateListingImages = async () => {
@@ -68,6 +68,7 @@ const updateListingImages = async () => {
   } catch (err) {
     console.error("ERROR:", err);
   }
+  mongoose.connection.close();
 };
 
-updateListingImages();
+//updateListingImages();
