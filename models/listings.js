@@ -10,13 +10,15 @@ function getISTDateTime() {
   });
 }
 
+const imageSchema = new Schema({
+  url: String,
+  filename: String
+});
+
 const Listing = new Schema({
   title: String,
   description: String,
-  image: {
-    url: String,
-    filename: String,
-  },
+  images: [imageSchema], // Changed from single image to array of images
   price: Number,
   location: String,
   country: String,

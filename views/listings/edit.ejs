@@ -2,7 +2,7 @@
 
 <div class="property-edit-wrapper">
   <div class="property-edit-container">
-    <div class="property-image-preview" style="background-image: url('<%= data.image.url %>')">
+    <div class="property-image-preview" style="background-image: url('<%= data.images && data.images[0] ? data.images[0].url : "/images/placeholder.jpg" %>')">
       <div class="property-image-overlay"></div>
       <div class="property-price-tag">₹<%= data.price.toLocaleString("en-IN") %></div>
       <div class="property-location-tag">
@@ -39,12 +39,47 @@
         </div>
 
         <div class="property-form-group">
-          <label for="image">
-            <i class="fa-solid fa-image"></i>
-            <span>Upload New Image</span>
+          <label>
+            <i class="fa-solid fa-images"></i>
+            <span>Property Images</span>
           </label>
-          <input type="file" id="image" name="image"/>
+          
+          <div class="image-upload-container">
+            <div class="image-upload-input">
+              <input type="file" id="imageUpload" name="images" multiple accept="image/*"/>
+              <div class="upload-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Upload Images</p>
+              </div>
+            </div>
+          </div>
+          
           <div class="property-focus-border"></div>
+          
+          <div class="image-preview-gallery">
+            <% if (data.images && data.images.length > 0) { %>
+              <% data.images.forEach((img, index) => { %>
+                <div class="image-preview-item">
+                  <img src="<%= img.url %>" alt="Property image <%= index + 1 %>">
+                  <div class="image-delete-overlay">
+                    <button type="button" class="image-delete-btn" data-filename="<%= img.filename %>">
+                      <i class="fa-solid fa-times"></i>
+                    </button>
+                    <input type="hidden" name="deleteImages[]" value="" class="delete-image-input">
+                  </div>
+                </div>
+              <% }) %>
+            <% } %>
+            
+            <!-- Empty slots if fewer than 3 images -->
+            <% for(let i = (data.images ? data.images.length : 0); i < 3; i++) { %>
+              <div class="image-preview-item empty">
+                <div class="empty-image-placeholder">
+                  <i class="fa-regular fa-image"></i>
+                </div>
+              </div>
+            <% } %>
+          </div>
         </div>
 
         <div class="property-form-group">
@@ -93,3 +128,70 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Handle delete button clicks
+    const deleteButtons = document.querySelectorAll('.image-delete-btn');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const filename = this.getAttribute('data-filename');
+        const container = this.closest('.image-preview-item');
+        const deleteInput = container.querySelector('.delete-image-input');
+        
+        // Mark for deletion
+        container.classList.toggle('marked-for-deletion');
+        if (container.classList.contains('marked-for-deletion')) {
+          deleteInput.value = filename;
+          this.innerHTML = '<i class="fa-solid fa-undo"></i>';
+        } else {
+          deleteInput.value = '';
+          this.innerHTML = '<i class="fa-solid fa-times"></i>';
+        }
+      });
+    });
+    
+    // Handle file input preview
+    const imageUpload = document.getElementById('imageUpload');
+    imageUpload.addEventListener('change', function() {
+      const files = this.files;
+      
+      // Remove any empty placeholder slots first
+      const emptySlots = document.querySelectorAll('.image-preview-item.empty');
+      emptySlots.forEach(slot => {
+        slot.remove();
+      });
+      
+      // Count existing images (not marked for deletion)
+      const existingImages = document.querySelectorAll('.image-preview-item:not(.empty):not(.marked-for-deletion)').length;
+      const totalAfterUpload = existingImages + files.length;
+      
+      // Limit to 3 total images
+      const maxToShow = Math.min(files.length, 3 - existingImages);
+      
+      if (maxToShow <= 0) {
+        alert('You can only upload up to 3 images. Please delete some existing images first.');
+        return;
+      }
+      
+      // Add new image previews
+      const gallery = document.querySelector('.image-preview-gallery');
+      for (let i = 0; i < maxToShow; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          const previewItem = document.createElement('div');
+          previewItem.className = 'image-preview-item new-upload';
+          previewItem.innerHTML = `
+            <img src="${e.target.result}" alt="New upload preview">
+            <div class="image-upload-label">New</div>
+          `;
+          gallery.appendChild(previewItem);
+        }
+        
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>

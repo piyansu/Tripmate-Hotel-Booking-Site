@@ -5,23 +5,27 @@
     <!-- Replace the existing detail-image-container with this code -->
     <div class="photo-layout-container">
       <div class="photo-grid">
-        <div class="main-photo">
-          <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
-        </div>
-        <div class="side-photos">
-          <div class="side-photo-top">
-            <img
-              src="<%= listing.images && listing.images[1] ? listing.images[1].url : listing.image.url %>"
-              alt="<%= listing.title %>"
-            />
+        <% if (listing.images) { %>
+          <div class="main-photo">
+            <img src="<%= listing.images[0].url %>" alt="<%= listing.title %>" />
           </div>
-          <div class="side-photo-bottom">
-            <img
-              src="<%= listing.images && listing.images[2] ? listing.images[2].url : listing.image.url %>"
-              alt="<%= listing.title %>"
-            />
+          
+          <% if (listing.images.length > 1) { %>
+          <div class="side-photos">
+            <div class="side-photo-top">
+              <img src="<%= listing.images[1].url %>" alt="<%= listing.title %>" />
+            </div>
+            
+            <% if (listing.images.length > 2) { %>
+            <div class="side-photo-bottom">
+              <img src="<%= listing.images[2].url %>" alt="<%= listing.title %>" />
+            </div>
+            <% } %>
           </div>
-        </div>
+          <% } %>
+        <% } else { %>
+          <p style="text-align: center; color: gray">No images available.</p>
+        <% } %>
       </div>
     </div>
     <div class="detail-info">
@@ -236,7 +240,6 @@
     const mapElement = document.getElementById("map");
     if (!mapElement) return;
 
-    console.log("Map coordinates:", listingCoordinates);
 
     // Ensure we have valid coordinates
     let coordinates = listingCoordinates;
@@ -246,7 +249,6 @@
     const lat = coordinates[1];
     const lng = coordinates[0];
 
-    console.log(`Setting map view to: lat=${lat}, lng=${lng}`);
 
     const map = L.map("map").setView([lat, lng], 13);
 

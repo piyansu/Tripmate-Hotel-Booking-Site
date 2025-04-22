@@ -9,7 +9,12 @@
 
   <div class="new-listing-card">
     <h2 class="new-listing-title">Add a New Listing</h2>
-    <form id="listing-form" action="/listings" method="POST" enctype="multipart/form-data">
+    <form
+      id="listing-form"
+      action="/listings"
+      method="POST"
+      enctype="multipart/form-data"
+    >
       <div class="form-field">
         <label for="title" class="required-field">Title</label>
         <input
@@ -36,9 +41,15 @@
       </div>
 
       <div class="form-field">
-        <label for="image" class="required-field">Upload Image</label>
-        <input type="file" id="image" name="image" required />
+        <label for="image" class="required-field"
+          >Upload Exactly 3 Images</label
+        >
+        <input type="file" id="image" name="image" multiple accept="image/*" />
         <span class="focus-border"></span>
+
+        <!-- Image preview container -->
+        <div id="image-preview-container" class="image-preview-container"></div>
+        <p id="image-count-message" class="image-count-message"></p>
       </div>
 
       <div class="form-field">
@@ -89,3 +100,153 @@
     </form>
   </div>
 </div>
+<script>
+  // Function to handle image preview and validation
+  const imageInput = document.getElementById("image");
+  const previewContainer = document.getElementById("image-preview-container");
+  const imageCountMessage = document.getElementById("image-count-message");
+  const submitButton = document.getElementById("submit-button");
+  let selectedFiles = [];
+
+  // Handle file selection
+  imageInput.addEventListener("change", function () {
+    const files = Array.from(this.files);
+
+    // Clear existing message
+    imageCountMessage.textContent = "";
+
+    // Check if adding these files would exceed 3 images
+    if (selectedFiles.length + files.length > 3) {
+      imageCountMessage.textContent =
+        "You can only upload 3 images. Please delete some images first.";
+      imageCountMessage.classList.add("error-message");
+      return;
+    }
+
+    // Process each file
+    files.forEach((file) => {
+      // Only add if we haven't reached 3 files
+      if (selectedFiles.length < 3) {
+        selectedFiles.push(file);
+        createImagePreview(file);
+      }
+    });
+
+    // Update validation message
+    updateImageCountMessage();
+
+    // Clear the file input to allow selecting the same files again if needed
+    imageInput.value = "";
+  });
+
+  // Create image preview with delete button
+  function createImagePreview(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const previewCard = document.createElement("div");
+      previewCard.className = "image-preview-card";
+
+      const image = document.createElement("img");
+      image.src = e.target.result;
+      image.className = "preview-image";
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "delete-image-btn";
+      deleteBtn.innerHTML = "×";
+      deleteBtn.onclick = function (event) {
+        event.preventDefault();
+        // Find index of the file and remove it
+        const index = selectedFiles.indexOf(file);
+        if (index > -1) {
+          selectedFiles.splice(index, 1);
+        }
+        previewContainer.removeChild(previewCard);
+        updateImageCountMessage();
+      };
+
+      previewCard.appendChild(image);
+      previewCard.appendChild(deleteBtn);
+      previewContainer.appendChild(previewCard);
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  // Update the image count message
+  function updateImageCountMessage() {
+    imageCountMessage.classList.remove("error-message");
+
+    if (selectedFiles.length === 0) {
+      imageCountMessage.textContent = "Please select 3 images.";
+    } else if (selectedFiles.length < 3) {
+      imageCountMessage.textContent = `You have selected ${
+        selectedFiles.length
+      } image${selectedFiles.length > 1 ? "s" : ""}. Please select ${
+        3 - selectedFiles.length
+      } more.`;
+    } else {
+      imageCountMessage.textContent = "Great! You've selected 3 images.";
+      imageCountMessage.classList.add("success-message");
+    }
+  }
+
+  // Form submission validation
+  document
+    .getElementById("listing-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      if (selectedFiles.length !== 3) {
+        imageCountMessage.textContent = "Please upload exactly 3 images.";
+        imageCountMessage.classList.add("error-message");
+        return false;
+      }
+
+      // Show loading overlay
+      document.getElementById("loading-overlay").classList.remove("hidden");
+
+      // Create a new FormData object from the form
+      const formData = new FormData(this);
+
+      // Remove any existing files from the form data (that might come from the file input)
+      formData.delete("image");
+
+      // Add each selected file to the form data
+      selectedFiles.forEach((file) => {
+        formData.append("image", file);
+      });
+
+      // Check if files were added properly
+      console.log("Files in FormData:", formData.getAll("image").length);
+
+      // Send the form data using fetch
+      fetch("/listings", {
+        method: "POST",
+        body: formData, // This contains all form fields including files
+        // Note: Don't set Content-Type header when sending FormData
+      })
+        .then((response) => {
+          if (response.redirected) {
+            window.location.href = response.url;
+          } else if (response.ok) {
+            return response.json().then((data) => {
+              if (data.error) {
+                throw new Error(data.error);
+              }
+              window.location.href = "/listings";
+            });
+          } else {
+            throw new Error("Network response was not ok");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("loading-overlay").classList.add("hidden");
+          alert(
+            "There was a problem submitting your listing: " + error.message
+          );
+        });
+    });
+  // Initialize message on page load
+  updateImageCountMessage();
+</script>

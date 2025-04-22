@@ -12,10 +12,10 @@
         <div class="card-image-wrapper">
           <div class="image-overlay"></div>
           <img
-            src="<%= listing.image.url %>"
-            class="card-image"
+            src="<%= listing.images && listing.images[0] ? listing.images[0].url : '/fallback.jpg' %>"
             alt="<%= listing.title %>"
           />
+
           <div class="property-badge">Featured</div>
         </div>
         <div class="card-content">
@@ -33,7 +33,7 @@
               <span class="price-label">Price</span>
               <span class="price-value">
                 ₹<%= listing.price ? listing.price.toLocaleString("en-IN") :
-                "500"%>
+                "500" %>
               </span>
             </div>
             <a href="/listings/<%= listing._id %>">

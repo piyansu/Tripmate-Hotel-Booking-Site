@@ -131,51 +131,75 @@
               <label>Where to?</label>
               <div class="input-with-icon">
                 <i class="fas fa-map-marker-alt"></i>
-                <input type="text" name="location" placeholder="Enter destination" required />
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Enter destination"
+                  required
+                />
               </div>
             </div>
-    
+
             <!-- Check-in / Check-out -->
             <div class="search-item date-picker">
               <label>Check-in / Check-out</label>
               <div class="input-with-icon">
                 <i class="far fa-calendar"></i>
-                <input type="text" id="date-picker" placeholder="Add travel dates" readonly />
+                <input
+                  type="text"
+                  id="date-picker"
+                  placeholder="Add travel dates"
+                  readonly
+                />
               </div>
               <div class="date-range-display" id="date-display">
                 <div class="date-block" id="check-in">Select check-in</div>
                 <div class="date-block" id="check-out">Select check-out</div>
               </div>
             </div>
-    
+
             <!-- Guests -->
             <div class="search-item">
               <label>Guests</label>
               <div class="input-with-icon">
                 <i class="fas fa-user-friends"></i>
-                <input type="text" id="guests" placeholder="Number of guests" required/>
+                <input
+                  type="text"
+                  id="guests"
+                  placeholder="Number of guests"
+                  required
+                />
               </div>
             </div>
-    
+
             <!-- Search Button -->
             <button class="search-btn" type="submit">
               <i class="fas fa-search"></i> Search
             </button>
           </div>
         </form>
-    
+
         <!-- Quick Filters -->
         <div class="quick-filters">
-          <button class="filter-btn"><i class="fas fa-umbrella-beach"></i> Beachfront</button>
-          <button class="filter-btn"><i class="fas fa-paw"></i> Pet-friendly</button>
+          <button class="filter-btn">
+            <i class="fas fa-umbrella-beach"></i> Beachfront
+          </button>
+          <button class="filter-btn">
+            <i class="fas fa-paw"></i> Pet-friendly
+          </button>
           <button class="filter-btn"><i class="fas fa-home"></i> Cabins</button>
-          <button class="filter-btn"><i class="fas fa-swimming-pool"></i> Pool</button>
-          <button class="filter-btn"><i class="fas fa-mountain"></i> Mountain view</button>
-          <button class="filter-btn"><i class="fas fa-wifi"></i> Free WiFi</button>
+          <button class="filter-btn">
+            <i class="fas fa-swimming-pool"></i> Pool
+          </button>
+          <button class="filter-btn">
+            <i class="fas fa-mountain"></i> Mountain view
+          </button>
+          <button class="filter-btn">
+            <i class="fas fa-wifi"></i> Free WiFi
+          </button>
         </div>
       </div>
     </section>
-    
 
     <!-- Featured Listings -->
     <section class="featured-listings">
@@ -198,7 +222,7 @@
             <div class="listing-card">
               <div class="listing-image">
                 <img
-                  src="<%= listing.image?.url || '/images/placeholder.jpg' %>"
+                src="<%= listing.images && listing.images[0] ? listing.images[0].url : '/images/placeholder.jpg' %>"
                   alt="<%= listing.title %>"
                   loading="lazy"
                 />

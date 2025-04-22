@@ -14,7 +14,7 @@
     <div class="host-listing-card">
       <div class="host-listing-status">Active</div>
       <div class="host-listing-img-container">
-        <img src="<%= listing.image.url %>" alt="<%= listing.title %>" />
+        <img src="<%= listing.images && listing.images[0] ? listing.images[0].url : '/fallback.jpg' %>" alt="<%= listing.title %>" />
         <div class="host-listing-location">
           <i class="fa-solid fa-location-dot"></i> <%= listing.location %>
         </div>

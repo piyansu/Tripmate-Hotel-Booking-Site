@@ -11,9 +11,9 @@ const listingcontroller = require("../controllers/listings.js");
 
 // GET /listings - Show listings from other users only
 router
-    .route("/")
-    .get(listingcontroller.listings)
-    .post(isLoggedIn, upload.single("image"), listingcontroller.postlistings);
+  .route("/")
+  .get(listingcontroller.listings)
+  .post(isLoggedIn, upload.array("image", 3), listingcontroller.postlistings)
 
 // GET /listings - Show only the logged-in user's own listings
 router.get("/user-listings", isLoggedIn, listingcontroller.userlistings);
@@ -25,7 +25,7 @@ router.get("/new", isLoggedIn, listingcontroller.rendernewform);
 router
     .route("/:id")
     .get(listingcontroller.showlistings)
-    .put(upload.single("image"),listingcontroller.editlistings)
+    .put(upload.array("images", 3), listingcontroller.editlistings)
     .delete(isLoggedIn, listingcontroller.deletelistings);
 
 // GET /listings/:id/edit
