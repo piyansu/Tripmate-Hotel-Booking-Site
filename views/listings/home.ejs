@@ -580,7 +580,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
     <script src="/js/navbar.js"></script>
-
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
