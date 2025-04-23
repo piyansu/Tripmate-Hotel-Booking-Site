@@ -530,7 +530,7 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.date-picker{
+.date-picker {
   margin-top: 2.8rem;
 }
 
@@ -624,13 +624,6 @@ input::placeholder {
   scroll-behavior: smooth;
   direction: rtl; /* Enables RTL horizontal scroll */
   padding-bottom: 1rem;
-}
-
-.listings-carousel {
-  display: flex;
-  gap: 1.5rem;
-  scroll-snap-type: x mandatory;
-  padding-left: 1rem; /* Optional: spacing on left */
 }
 
 /* Individual Card */
@@ -804,14 +797,10 @@ input::placeholder {
 
 .listings-carousel {
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+  gap: 1rem;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  padding: 10px 5px 20px; /* Add padding to show box-shadow */
-  scroll-snap-type: x mandatory;
-  direction: ltr; /* Force left-to-right */
+  padding: 0.5rem 0;
 }
 
 /* Hide scrollbar */
@@ -905,7 +894,11 @@ input::placeholder {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .listings-carousel {
-    gap: 15px;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .listing-card {
@@ -1760,7 +1753,7 @@ input::placeholder {
       rgba(0, 0, 0, 0.3)
     );
   }
-  .date-picker{
+  .date-picker {
     margin-top: -1px;
     margin-top: 8px;
   }

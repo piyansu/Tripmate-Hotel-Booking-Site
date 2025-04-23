@@ -72,6 +72,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// IMPROVED CAROUSEL FUNCTIONALITY
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.getElementById("carousel");
   const nextBtn = document.getElementById("next-featured");
@@ -80,213 +81,143 @@ document.addEventListener("DOMContentLoaded", function () {
   // Check if elements exist to prevent errors
   if (!carousel || !nextBtn || !prevBtn) return;
 
-  const scrollAmount = 320; // Width of card + margins
-
-  // Enhanced smooth scrolling with easing function
-  function smoothScroll(element, target, duration) {
-    const start = element.scrollLeft;
-    const change = target - start;
-    let startTime = null;
-
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      // Easing function: easeOutCubic for natural deceleration
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-
-      element.scrollLeft = start + change * easeProgress;
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    }
-
-    requestAnimationFrame(animation);
-  }
-
+  // Card width + margin (adjust based on your actual card dimensions)
+  const cardWidth = 320;
+  
+  // Use CSS scroll behavior for smoother native scrolling
+  carousel.style.scrollBehavior = "smooth";
+  
   // Improved button event listeners with enhanced smooth scrolling
   nextBtn.addEventListener("click", () => {
-    const target = carousel.scrollLeft + scrollAmount;
-    smoothScroll(carousel, target, 600); // 600ms for smooth transition
+    // Get the current scroll position and calculate the next card position
+    const currentPosition = carousel.scrollLeft;
+    const visibleWidth = carousel.clientWidth;
+    const totalWidth = carousel.scrollWidth;
+    
+    // Find the next card position
+    const nextPosition = Math.min(
+      totalWidth - visibleWidth,
+      Math.floor(currentPosition / cardWidth) * cardWidth + cardWidth
+    );
+    
+    // Scroll to the position using native smooth scrolling
+    carousel.scrollTo({
+      left: nextPosition,
+      behavior: "smooth"
+    });
   });
 
   prevBtn.addEventListener("click", () => {
-    const target = carousel.scrollLeft - scrollAmount;
-    smoothScroll(carousel, target, 600);
+    // Get the current scroll position and calculate the previous card position
+    const currentPosition = carousel.scrollLeft;
+    
+    // Find the previous card position
+    const prevPosition = Math.max(
+      0,
+      Math.ceil(currentPosition / cardWidth - 1) * cardWidth
+    );
+    
+    // Scroll to the position using native smooth scrolling
+    carousel.scrollTo({
+      left: prevPosition,
+      behavior: "smooth"
+    });
   });
 
   // Show/hide navigation buttons based on scroll position
   function updateButtonVisibility() {
-    const isAtStart = carousel.scrollLeft === 0;
-    const isAtEnd =
-      carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 5;
+    const isAtStart = carousel.scrollLeft < 10;
+    const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
 
     // Change opacity based on scroll position
     prevBtn.style.opacity = isAtStart ? "0.5" : "1";
     nextBtn.style.opacity = isAtEnd ? "0.5" : "1";
-
-    // Optional: disable buttons at edges for better UX
-    prevBtn.disabled = isAtStart;
-    nextBtn.disabled = isAtEnd;
+    
+    // Make buttons non-interactive at edges
+    prevBtn.style.pointerEvents = isAtStart ? "none" : "auto";
+    nextBtn.style.pointerEvents = isAtEnd ? "none" : "auto";
   }
 
   carousel.addEventListener("scroll", updateButtonVisibility);
+  window.addEventListener("resize", updateButtonVisibility);
 
   // Initialize button state
   updateButtonVisibility();
 
-  // Improved touch interaction with momentum scrolling
-  let startX;
-  let startTime;
-  let startScrollLeft;
-  let lastDragX;
-  let velocity = 0;
+  // Improved touch/mouse dragging
+  let startX, startScrollLeft;
   let isDragging = false;
-  let animationId = null;
 
-  carousel.addEventListener("touchstart", (e) => {
-    if (animationId) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
-    }
-
-    startX = e.touches[0].pageX;
-    startTime = Date.now();
-    startScrollLeft = carousel.scrollLeft;
-    lastDragX = startX;
+  function startDrag(e) {
     isDragging = true;
-  });
-
-  carousel.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-
-    const x = e.touches[0].pageX;
-    const dx = startX - x;
-    const timestamp = Date.now();
-
-    // Calculate instantaneous velocity
-    velocity = ((lastDragX - x) / (timestamp - startTime)) * 1000; // pixels per second
-
-    lastDragX = x;
-    startTime = timestamp;
-
-    carousel.scrollLeft = startScrollLeft + dx;
-    e.preventDefault();
-  });
-
-  carousel.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    isDragging = false;
-
-    // Apply momentum based on final velocity
-    const amplifier = 0.8; // Adjust for more/less momentum
-    const speed = Math.abs(velocity) * amplifier;
-    const distance = velocity * 0.5; // How far it will travel with momentum
-
-    if (Math.abs(speed) > 5) {
-      const targetScroll = carousel.scrollLeft + distance;
-      smoothScroll(carousel, targetScroll, 500);
-    }
-  });
-
-  // Improved mouse drag with momentum scrolling
-  carousel.addEventListener("mousedown", (e) => {
-    if (animationId) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
-    }
-
-    e.preventDefault();
-    startX = e.pageX;
-    startTime = Date.now();
+    startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
     startScrollLeft = carousel.scrollLeft;
-    lastDragX = startX;
-    isDragging = true;
+    
+    // Change cursor style
     carousel.style.cursor = "grabbing";
-
-    // Prevent text selection during drag
-    document.body.style.userSelect = "none";
-  });
-
-  carousel.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-
-    e.preventDefault();
-    const x = e.pageX;
-    const dx = startX - x;
-    const timestamp = Date.now();
-
-    // Calculate instantaneous velocity
-    velocity = ((lastDragX - x) / (timestamp - startTime)) * 1000;
-
-    lastDragX = x;
-    startTime = timestamp;
-
-    carousel.scrollLeft = startScrollLeft + dx;
-  });
-
-  function finishDrag() {
-    if (!isDragging) return;
-    isDragging = false;
-
-    carousel.style.cursor = "grab";
-    document.body.style.userSelect = "";
-
-    // Apply momentum based on final velocity
-    const amplifier = 0.8;
-    const speed = Math.abs(velocity) * amplifier;
-    const distance = velocity * 0.5;
-
-    if (Math.abs(speed) > 5) {
-      const targetScroll = carousel.scrollLeft + distance;
-      smoothScroll(carousel, targetScroll, 500);
-    }
+    carousel.style.scrollBehavior = "auto"; // Disable smooth scrolling during drag
+    
+    // Prevent text selection
+    carousel.style.userSelect = "none";
   }
 
-  carousel.addEventListener("mouseup", finishDrag);
-  carousel.addEventListener("mouseleave", finishDrag);
+  function drag(e) {
+    if (!isDragging) return;
+    
+    e.preventDefault();
+    const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    const walkX = (startX - x) * 1.2; // Multiplier for responsive feel
+    
+    carousel.scrollLeft = startScrollLeft + walkX;
+  }
 
-  // Smoother keyboard navigation
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    // Restore cursor and scrolling behavior
+    carousel.style.cursor = "grab";
+    carousel.style.userSelect = "";
+    
+    // Snap to nearest card after dragging
+    const scrollPosition = carousel.scrollLeft;
+    const cardPosition = Math.round(scrollPosition / cardWidth) * cardWidth;
+    
+    // Re-enable smooth scrolling for the snap
+    carousel.style.scrollBehavior = "smooth";
+    carousel.scrollTo({
+      left: cardPosition,
+      behavior: "smooth"
+    });
+  }
+
+  // Mouse events
+  carousel.addEventListener("mousedown", startDrag);
+  carousel.addEventListener("mousemove", drag);
+  carousel.addEventListener("mouseup", endDrag);
+  carousel.addEventListener("mouseleave", endDrag);
+  
+  // Touch events
+  carousel.addEventListener("touchstart", startDrag);
+  carousel.addEventListener("touchmove", drag);
+  carousel.addEventListener("touchend", endDrag);
+
+  // Add keyboard support
   document.addEventListener("keydown", (e) => {
-    if (document.activeElement !== document.body) return;
-
     if (e.key === "ArrowLeft") {
-      const target = carousel.scrollLeft - scrollAmount;
-      smoothScroll(carousel, target, 600);
+      prevBtn.click();
       e.preventDefault();
     } else if (e.key === "ArrowRight") {
-      const target = carousel.scrollLeft + scrollAmount;
-      smoothScroll(carousel, target, 600);
+      nextBtn.click();
       e.preventDefault();
     }
   });
 
-  // Add scroll snapping for better positioning
-  carousel.addEventListener("scrollend", () => {
-    // Find the closest card position to snap to
-    const cardWidth = 320; // Card width + gap
-    const position = carousel.scrollLeft;
-    const mod = position % cardWidth;
-
-    let target;
-    if (mod > cardWidth / 2) {
-      target = position + (cardWidth - mod);
-    } else {
-      target = position - mod;
-    }
-
-    // Only snap if we're close to a snap point
-    if (Math.abs(position - target) < 40) {
-      smoothScroll(carousel, target, 300);
-    }
-  });
-
-  // Initialize cursor style
+  // Set initial cursor style
   carousel.style.cursor = "grab";
 });
 
+// DATE PICKER FUNCTIONALITY
 document.addEventListener("DOMContentLoaded", function () {
   const checkInElement = document.getElementById("check-in");
   const checkOutElement = document.getElementById("check-out");

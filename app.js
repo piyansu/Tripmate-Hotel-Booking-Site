@@ -100,7 +100,7 @@ mongoose
 
 // Root Route
 app.get("/", async (req, res) => {
-  const randomListings = await Listing.aggregate([{ $sample: { size: 8 } }]);
+  const randomListings = await Listing.aggregate([{ $sample: { size: 5 } }]);
   res.render("listings/home", { featured: randomListings });
 });
 
