@@ -1,26 +1,39 @@
 # ✨ TripMate — Your Travel Buddy
 
-**TripMate** is a **MERN stack travel listing and booking platform** where users can explore, create, and manage travel properties. It also includes a special section to raise awareness about the **fraudulent practices in fantasy sports apps** like Dream11.
+**TripMate** is a **full-stack travel listing and booking platform** built using the **MERN stack**. Users can explore, create, and manage travel properties across India. The platform also features an awareness section highlighting fraudulent practices in **fantasy sports apps** like Dream11.
 
 ---
 
 ## 🚀 Features
 
-- 🗺️ Explore travel property listings with images & locations  
-- ✍️ Add, edit, and delete your own listings  
-- ⚡ Real-time UI interactivity with smooth animations  
-- ⚠️ Awareness simulation about fake fantasy gaming apps (Dream11 bots)
+- 🗺️ Browse and discover travel listings with rich visuals & map locations  
+- 📝 Create, update, and delete your own property listings  
+- 💬 User authentication with secure login/logout  
+- ⚡ Smooth, responsive UI with animations and dynamic interactivity  
+- ⚠️ **Awareness simulation** to expose how fake bots manipulate fantasy apps (like Dream11)  
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category    | Technologies |
-|-------------|--------------|
-| **Frontend** | React.js, Tailwind CSS, Axios |
-| **Backend**  | Node.js, Express.js |
-| **Database** | MongoDB with Mongoose |
-| **Other Tools** | Cloudinary, Mapbox, Multer, Express-session, Passport.js |
+| Category          | Technologies                          |
+|-------------------|---------------------------------------|
+| **Frontend**      | React.js, Tailwind CSS, Axios         |
+| **Backend**       | Node.js, Express.js                   |
+| **Database**      | MongoDB, Mongoose                     |
+| **Authentication**| Passport.js, Express-session          |
+| **File Uploads**  | Multer, AWS S3 / Cloudinary           |
+| **Maps**          | Mapbox, Leaflet, MapTiler             |
+| **Others**        | Dotenv, Method-Override               |
+
+---
+
+## 📌 Project Status
+
+🔧 This project is under active development and testing.  
+Feel free to try it out at: [https://tripmate.org](https://tripmate.org)
+
+🙌 Feedback and suggestions are always welcome — reach out via DM or [LinkedIn](https://linkedin.com).
 
 ---
 
